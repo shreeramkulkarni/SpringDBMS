@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" session="false" %>
+    
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 
@@ -10,12 +11,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Table - Panch-Karm Clinic</title>
-    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<c:url value="/assets/bootstrap/css/bootstrap.min.css"/>">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
-    <link rel="stylesheet" href="../assets/fonts/fontawesome-all.min.css">
-    <link rel="stylesheet" href="../assets/css/MUSA_panel-table-1.css">
-    <link rel="stylesheet" href="../assets/css/MUSA_panel-table.css">
-    <link rel="stylesheet" href="../assets/css/Navigation-Clean.css">
+    <link rel="stylesheet" href="<c:url value="assets/fonts/fontawesome-all.min.css"/>">
+    <link rel="stylesheet" href="<c:url value="assets/css/MUSA_panel-table-1.css"/>">
+    <link rel="stylesheet" href="<c:url value="assets/css/MUSA_panel-table.css"/>">
+    <link rel="stylesheet" href="<c:url value="assets/css/Navigation-Clean.css"/>">
 </head>
 
 <body id="page-top">
@@ -215,13 +216,13 @@
                 </div>
             </footer>
         </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a></div>
-    <script src="../assets/js/jquery.min.js"></script>
-    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="../assets/js/chart.min.js"></script>
-    <script src="../assets/js/bs-charts.js"></script>
+    <script src="<c:url value="assets/js/jquery.min.js"/>"></script>
+    <script src="<c:url value="assets/bootstrap/js/bootstrap.min.js"/>"></script>
+    <script src="<c:url value="assets/js/chart.min.js"/>"></script>
+    <script src="<c:url value="assets/js/bs-charts.js"/>"></script>
+	<script src="<c:url value="assets/js/theme.js"/>"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
-    <script src="../assets/js/theme.js"></script>
-     <script src="../assets/js/search.js"></script>
+    <script src="<c:url value="assets/js/search.js"/>"></script>
 </body>
 
 </html>

@@ -40,7 +40,7 @@ public class PatientService {
 
 	public List getAllRecords() {
 		ResultSet rs = PatientQuery.selectQueryPatient("0");
-		
+		patients.clear();
 		try {
 			while(rs.next()) {
 				int patientId = rs.getInt(1);

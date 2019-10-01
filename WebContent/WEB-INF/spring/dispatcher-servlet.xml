@@ -9,14 +9,7 @@
 
 
 <mvc:annotation-driven></mvc:annotation-driven>
-
-<mvc:resources mapping="/assets/bootstrap/**" location="/assets/bootstrap/"/>
-<mvc:resources mapping="/assets/js/**" location="/assets/js/"/>
-<mvc:resources mapping="/assets/css/**" location="/assets/css/"/>
-<mvc:resources mapping="/assets/img/**" location="/assets/img/"/>
-<mvc:resources mapping="/assets/fonts/**" location="/assets/fonts/"/>
-
-<mvc:resources mapping="/assets/**" location="/assets/bootstrap/css/" />
+<mvc:resources mapping="/assets/**" location="/assets/" />
 <context:component-scan base-package="com.panchaved.web"></context:component-scan>
 
 <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">

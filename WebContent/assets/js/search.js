@@ -1,6 +1,7 @@
 function searchFunction() {
     var row, filter, ul, li, nameCell, i;
     row = document.getElementsByTagName("tr");
+    console.log(row);
     filter = document.getElementById("searchbar").value;
 
     for(i=1 ; i< row.length; i++){

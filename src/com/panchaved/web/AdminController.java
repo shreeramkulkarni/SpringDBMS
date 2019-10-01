@@ -32,4 +32,11 @@ public class AdminController {
 		model.addAttribute("patient", pService.getAllRecords());
 		return "table.jsp";
 	}
+	
+	@RequestMapping(value="/patient/new", method = RequestMethod.GET)
+	public String newPatient(Model model) {
+		model.addAttribute("patient", pService.getAllRecords());
+		return "table.jsp";
+	}
+	
 }
