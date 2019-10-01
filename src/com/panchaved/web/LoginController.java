@@ -26,7 +26,7 @@ public class LoginController {
 		System.out.println("login called!");
 		return "login.jsp";
 		}
-		return "dashboard.jsp";
+		return "success.jsp";
 	}
 	@RequestMapping(method=RequestMethod.POST)
 	public String login(HttpServletRequest req,@RequestParam("username") String username,@RequestParam("password")String password,@RequestParam("radiob")String radio , Model model) {
@@ -45,9 +45,8 @@ public class LoginController {
 			return "login.jsp";
 		}
 		
-		return "dashboard.jsp";
+		return "redirect:/admin";
 	}
-	
 	
 	@RequestMapping("/logout")
 	public String logout(HttpServletRequest request) {

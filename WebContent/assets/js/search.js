@@ -4,7 +4,7 @@ function searchFunction() {
     filter = document.getElementById("searchbar").value;
 
     for(i=1 ; i< row.length; i++){
-        nameCell = row[i].cells[0];
+        nameCell = row[i].cells[1];
         if(nameCell.innerText.toUpperCase().indexOf(filter.toUpperCase()) > -1){
             row[i].style.display = "";
         }
