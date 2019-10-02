@@ -1,5 +1,6 @@
 package com.panchaved.service;
 import com.panchaved.enitity.*;
+import com.google.gson.*;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -37,7 +38,10 @@ public class PatientService {
 		}
 		
 	}
-
+	
+	public 
+	
+	
 	public List getAllRecords() {
 		ResultSet rs = PatientQuery.selectQueryPatient("0");
 		patients.clear();
