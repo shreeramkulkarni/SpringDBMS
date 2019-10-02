@@ -1,3 +1,13 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1" session="false" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+
+<% 
+HttpSession session = request.getSession();
+String name = (String)session.getAttribute("usr");
+
+%>
 <!DOCTYPE html>
 <html>
 
@@ -11,7 +21,6 @@
     <link rel="stylesheet" href="<c:url value="assets/css/MUSA_panel-table-1.css"/>">
     <link rel="stylesheet" href="<c:url value="assets/css/MUSA_panel-table.css"/>">
     <link rel="stylesheet" href="<c:url value="assets/css/Navigation-Clean.css"/>">
-
 </head>
 
 <body id="page-top">
@@ -136,120 +145,131 @@
                         </ul>
                     </div>
                 </nav>
-                <div class="container-fluid">
-                    <h3 class="text-dark mb-4">Create Patient Profile</h3>
-                    <div class="row mb-3">
-                        <div class="col-lg-4">
-                            <div class="card">
-                                <div class="card-header py-3">
-                                    <p class="text-primary m-0 font-weight-bold">Basic Details</p>
-                                </div>
-                                <div class="card-body">
-                                    <form>
-                                        <div class="form-row">
-                                            <div class="col">
-                                                <div class="form-group"><label for="patientId"><strong>Patient Id</strong><br></label><input class="form-control" type="tel" inputmode="numeric" minlength="3" maxlength="6" required="" autofocus="" placeholder="3-6 digits" name="patientId"></div>
-                                            </div>
-                                            <div class="col">
-                                                <div class="form-group"><label for="phoneNo"><strong>Mobile Number</strong><br></label><input class="form-control" type="tel" name="phoneNo" inputmode="numeric" minlength="10" maxlength="10" required="" autofocus="" placeholder="mobile num"></div>
-                                            </div>
-                                        </div>
-                                        <div class="form-row">
-                                            <div class="col"></div>
-                                            <div class="col"></div>
-                                        </div>
-                                        <div class="form-group"></div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-8">
-                            <div class="row mb-3 d-none">
-                                <div class="col">
-                                    <div class="card text-white bg-primary shadow">
-                                        <div class="card-body">
-                                            <div class="row mb-2">
+                <form:form action="/SpringDBMS/admin/patient/new" method="post" modelAttribute = "addpatient">
+                    <div class="container-fluid">
+                        <h3 class="text-dark mb-4">Create Patient Profile</h3>
+                        <div class="row mb-3">
+                            <div class="col-lg-4">
+                                <div class="card">
+                                    <div class="card-header py-3">
+                                        <p class="text-primary m-0 font-weight-bold">Basic Details</p>
+                                    </div>
+    <!-- Basic Details -->
+                                    <div class="card-body" style="margin: 0px;">
+                                            <div class="form-row">
                                                 <div class="col">
-                                                    <p class="m-0">Peformance</p>
-                                                    <p class="m-0"><strong>65.2%</strong></p>
+                                                    <div class="form-group"><label for="patientId"><strong>Patient Id</strong><br></label><form:input path = "patientId" class="form-control" type="tel" inputmode="numeric" minlength="3" maxlength="6" required="" autofocus="" placeholder="3-6 digits" name="patientId" /></div>
                                                 </div>
-                                                <div class="col-auto"><i class="fas fa-rocket fa-2x"></i></div>
+                                                <div class="col">
+                                                    <div class="form-group"><label for="phoneNo"><strong>Mobile Number</strong><br></label><form:input path = "phoneNo" class="form-control" type="tel" name="phoneNo" inputmode="numeric" minlength="10" maxlength="10" required="" autofocus="" placeholder="mobile num" /></div>
+                                                </div>
                                             </div>
-                                            <p class="text-white-50 small m-0"><i class="fas fa-arrow-up"></i>&nbsp;5% since last month</p>
-                                        </div>
                                     </div>
                                 </div>
-                                <div class="col">
-                                    <div class="card text-white bg-success shadow">
-                                        <div class="card-body">
-                                            <div class="row mb-2">
-                                                <div class="col">
-                                                    <p class="m-0">Peformance</p>
-                                                    <p class="m-0"><strong>65.2%</strong></p>
+                                <br><br><br><br>
+                                <div class="row" style="margin: 10px;padding: -22px;height: 215px;">
+                                    <div class="col offset-md-0">
+                                        <div class="form-group">
+                                            <div class="card shadow" style="height: 202px;margin: 0;">
+    <!-- Remarks -->
+                                                <div class="card-header py-3">
+                                                    <p class="text-primary m-0 font-weight-bold">Remarks</p>
                                                 </div>
-                                                <div class="col-auto"><i class="fas fa-rocket fa-2x"></i></div>
+                                                <div class="card-body text-left" style="height: 107px;"><form:textarea path="remarks" class="form-control-lg" style="height: 108px;width: 315px;" /></textarea></div>
                                             </div>
-                                            <p class="text-white-50 small m-0"><i class="fas fa-arrow-up"></i>&nbsp;5% since last month</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col">
-                                    <div class="card shadow mb-3">
-                                        <div class="card-header py-3">
-                                            <p class="text-primary m-0 font-weight-bold">Secondary Details</p>
-                                            <p class="text-primary m-0 font-weight-bold"></p>
-                                        </div>
-                                        <div class="card-body">
-                                            <form>
-                                                <div class="form-row">
+                            <div class="col-lg-8">
+                                <div class="row mb-3 d-none">
+                                    <div class="col">
+                                        <div class="card text-white bg-primary shadow">
+                                            <div class="card-body">
+                                                <div class="row mb-2">
                                                     <div class="col">
-                                                        <div class="form-group"><label for="first_name"><strong>Patient Name</strong></label><input class="form-control" type="text" placeholder="Babu rao" name="patientName" style="margin: -7px;"></div>
+                                                        <p class="m-0">Peformance</p>
+                                                        <p class="m-0"><strong>65.2%</strong></p>
                                                     </div>
+                                                    <div class="col-auto"><i class="fas fa-rocket fa-2x"></i></div>
+                                                </div>
+                                                <p class="text-white-50 small m-0"><i class="fas fa-arrow-up"></i>&nbsp;5% since last month</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="card text-white bg-success shadow">
+                                            <div class="card-body">
+                                                <div class="row mb-2">
                                                     <div class="col">
-                                                        <div class="form-group">
-                                                            <div class="col"><label for="dob" style="height: 0px;"><strong>Date of Birth</strong></label><input class="form-control form-control-lg d-flex justify-content-center align-items-center align-content-center" type="date"
-                                                                    name="dob" style="font-size: 16px;margin: 0px;height: 38px;" required=""></div>
+                                                        <p class="m-0">Peformance</p>
+                                                        <p class="m-0"><strong>65.2%</strong></p>
+                                                    </div>
+                                                    <div class="col-auto"><i class="fas fa-rocket fa-2x"></i></div>
+                                                </div>
+                                                <p class="text-white-50 small m-0"><i class="fas fa-arrow-up"></i>&nbsp;5% since last month</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="card shadow mb-3">
+                                            <div class="card-header py-3">
+                                                <p class="text-primary m-0 font-weight-bold">Secondary Details</p>
+                                                <p class="text-primary m-0 font-weight-bold"></p>
+                                            </div>
+    <!-- Secondary Details                                         -->
+                                            <div class="card-body">
+                                              <!--  <form id="f2"> -->
+                                                    <div class="form-row">
+                                                        <div class="col">
+                                                            <div class="form-group"><label for="first_name"><strong>Patient Name</strong></label><form:input path = "patientName" class="form-control" type="text" placeholder="Babu rao" name="patientName" style="margin: -7px;"/></div>
+                                                        </div>
+                                                        <div class="col">
+                                                            <div class="form-group">
+                                                                <div class="col"><label for="dob" style="height: 0px;"><strong>Date of Birth</strong></label><form:input path = "dob" class="form-control form-control-lg d-flex justify-content-center align-items-center align-content-center" type="date"
+                                                                        name="dob" style="font-size: 16px;margin: 0px;height: 38px;" required=""/></div>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="form-row">
-                                                    <div class="col">
-                                                        <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable"><label for="bloodGroup">&nbsp;Blood Group<select class="form-control form-control form-control-sm custom-select custom-select-sm"><option value="null" selected="">Select</option><option value="O-" selected="">O-</option><option value="O+">O+</option><option value="A-">A-</option><option value="100">A+</option><option value="B-">B-</option><option value="B+">B+</option><option value="AB-">AB-</option><option value="AB+">AB+</option></select>&nbsp;</label></div>
+                                                    <div class="form-row">
+                                                        <div class="col">
+                                                            <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable"><label for="bloodGroup">&nbsp;Blood Group<select path="bloodGroup" class="form-control form-control form-control-sm custom-select custom-select-sm"><option value="null" selected="">Select</option><option value="O-" selected="">O-</option><option value="O+">O+</option><option value="A-">A-</option><option value="100">A+</option><option value="B-">B-</option><option value="B+">B+</option><option value="AB-">AB-</option><option value="AB+">AB+</option></select>&nbsp;</label></div>
+                                                        </div>
+                                                        <div class="col">
+                                                            <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable"><label style="margin: 2px;" for="gender">Gender&nbsp;<select path="gender" class="form-control form-control form-control-sm custom-select custom-select-sm"><option value="Male" selected="">Male</option><option value="Female">Female</option><option value="Other">Rather not say</option></select>&nbsp;</label></div>
+                                                        </div>
                                                     </div>
-                                                    <div class="col">
-                                                        <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable"><label style="margin: 2px;" for="gender">Gender&nbsp;<select class="form-control form-control form-control-sm custom-select custom-select-sm"><option value="Male" selected="">Male</option><option value="Female">Female</option><option value="Other">Rather not say</option></select>&nbsp;</label></div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group"></div>
-                                            </form>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="card shadow">
-                                        <div class="card-header py-3">
-                                            <p class="text-primary m-0 font-weight-bold">Address</p>
-                                        </div>
-                                        <div class="card-body">
-                                            <form>
-                                                <div class="form-group"><label for="address"><strong>Address</strong></label><input class="form-control" type="text" name="address"></div>
-                                                <div class="form-row">
-                                                    <div class="col">
-                                                        <div class="form-group"><label for="district"><strong>District</strong></label><input class="form-control" type="text" name="district"></div>
+    
+                                        <div class="card shadow">
+                                            <div class="card-header py-3">
+                                                <p class="text-primary m-0 font-weight-bold">Address</p>
+                                            </div>
+    <!-- Address -->
+                                            <div class="card-body">
+                                                    <div class="form-group"><label for="address"><strong>Address</strong></label><form:input path = "address" class="form-control" type="text" name="address"/></div>
+                                                    <div class="form-row">
+                                                        <div class="col">
+                                                            <div class="form-group"><label for="district"><strong>District</strong></label><form:input path = "district" class="form-control" type="text" name="district"/></div>
+                                                        </div>
+                                                        <div class="col">
+                                                            <div class="form-group"><label for="state"><strong>State</strong></label><form:input path = "state" class="form-control" type="text" name="state"/></div>
+                                                        </div>
                                                     </div>
-                                                    <div class="col">
-                                                        <div class="form-group"><label for="state"><strong>State</strong></label><input class="form-control" type="text" name="state"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group"><button class="btn btn-primary" type="submit">Save</button></div>
-                                            </form>
+                                                    <div class="form-group"><button class="btn btn-primary" type="submit">Save</button></div>
+                                               
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </form:form>
+                
             </div>
             <footer class="bg-white sticky-footer">
                 <div class="container my-auto">
@@ -257,13 +277,13 @@
                 </div>
             </footer>
         </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a></div>
-    <script src="<c:url value="assets/js/jquery.min.js"/>"></script>
-    <script src="<c:url value="assets/bootstrap/js/bootstrap.min.js"/>"></script>
-    <script src="<c:url value="assets/js/chart.min.js"/>"></script>
-    <script src="<c:url value="assets/js/bs-charts.js"/>"></script>
-	<script src="<c:url value="assets/js/theme.js"/>"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
-    <script src="<c:url value="assets/js/search.js"/>"></script>
+        <script src="<c:url value="assets/js/jquery.min.js"/>"></script>
+        <script src="<c:url value="assets/bootstrap/js/bootstrap.min.js"/>"></script>
+        <script src="<c:url value="assets/js/chart.min.js"/>"></script>
+        <script src="<c:url value="assets/js/bs-charts.js"/>"></script>
+        <script src="<c:url value="assets/js/theme.js"/>"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+        <script src="<c:url value="assets/js/search.js"/>"></script>
 </body>
 
 </html>

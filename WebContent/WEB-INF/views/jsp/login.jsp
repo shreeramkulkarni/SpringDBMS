@@ -40,7 +40,7 @@
                                             <thead>
                                                 <tr>
                                                     <th>
-                                                        <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-2" name="radiob" value="admin"><label class="form-check-label" for="formCheck-2">Admin</label></div>
+                                                        <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-2" name="radiob" value="admin" checked><label class="form-check-label" for="formCheck-2">Admin</label></div>
                                                     </th>
                                                     <th>
                                                         <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-3" name="radiob" value="doctor" ><label class="form-check-label" for="formCheck-3">Doctor</label></div>
