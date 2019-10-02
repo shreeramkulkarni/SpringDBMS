@@ -1,6 +1,6 @@
 package com.panchaved.enitity;
 
-import java.util.Date;
+import java.sql.Date;
 
 import org.springframework.stereotype.Component;
 
@@ -19,9 +19,12 @@ public class Patient {
 	private String address;
 	private String district;
 	private String state;
+	private String remarks;
+
+
 
 	public Patient(int patientId, String patientName, String gender, long phoneNo, String bloodGroup, Date dob, String address,
-			String district, String state) {
+			String district, String state,String remarks) {
 		super();
 		this.setPatientId(patientId);
 		this.patientName = patientName;
@@ -32,13 +35,14 @@ public class Patient {
 		this.address = address;
 		this.district = district;
 		this.state = state;
+		this.remarks = remarks;
 	}
 
 	@Override
 	public String toString() {
 		return "Patient [patientId=" + patientId + ", patientName=" + patientName + ", gender=" + gender + ", phoneNo="
 				+ phoneNo + ", bloodGroup=" + bloodGroup + ", dob=" + dob + ", address=" + address + ", district="
-				+ district + ", state=" + state + "]";
+				+ district + ", state=" + state + ", remarks =" + remarks +"]";
 	}
 
 	public Patient() {}
@@ -116,4 +120,14 @@ public class Patient {
 	public void setBloodGroup(String bloodGroup) {
 		this.bloodGroup = bloodGroup;
 	}
+	
+	public String getRemarks() {
+		return remarks;
+	}
+
+	public void setRemarks(String remarks) {
+		this.remarks = remarks;
+	}
+
+
 }
