@@ -15,12 +15,12 @@ public class Patient {
 	private String bloodGroup;
 	
 
-	private java.util.Date dob;
+	private java.sql.Date dob;
 	private String address;
 	private String district;
 	private String state;
 	private String remarks;
-
+	private String casetaking;
 
 
 	public Patient(int patientId, String patientName, String gender, long phoneNo, String bloodGroup, Date dob, String address,
@@ -36,6 +36,22 @@ public class Patient {
 		this.district = district;
 		this.state = state;
 		this.remarks = remarks;
+	}
+	
+	public Patient(int patientId, String patientName, String gender, long phoneNo, String bloodGroup, Date dob, String address,
+			String district, String state,String remarks,String casetaking) {
+		super();
+		this.setPatientId(patientId);
+		this.patientName = patientName;
+		this.gender = gender;
+		this.phoneNo = phoneNo;
+		this.bloodGroup = bloodGroup;
+		this.dob = dob;
+		this.address = address;
+		this.district = district;
+		this.state = state;
+		this.remarks = remarks;
+		this.casetaking = casetaking;
 	}
 
 	@Override
@@ -74,11 +90,11 @@ public class Patient {
 	}
 	
 
-	public java.util.Date getDob(){
+	public java.sql.Date getDob(){
 		return dob;
 	}
 
-	public void setDob(java.util.Date dob){
+	public void setDob(java.sql.Date dob){
 		this.dob=dob;
 	}
 
@@ -127,6 +143,14 @@ public class Patient {
 
 	public void setRemarks(String remarks) {
 		this.remarks = remarks;
+	}
+
+	public String getCasetaking() {
+		return casetaking;
+	}
+
+	public void setCasetaking(String casetaking) {
+		this.casetaking = casetaking;
 	}
 
 

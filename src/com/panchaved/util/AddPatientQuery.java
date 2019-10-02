@@ -14,7 +14,7 @@ public class AddPatientQuery {
 	private static Connection con = DbConnect.Connect();
 	static ResultSet rs;
 	
-	public static boolean insertPatient(Integer id, String patname, String gender, Integer contact, String bloodgrp,Date dob,String address,String district,String state,String remarks,String casetaking)
+	public static boolean insertPatient(Integer id, String patname, String gender, long contact, String bloodgrp,Date dob,String address,String district,String state,String remarks)
 	{
 		try {
 			String sql ="insert into patient values(?,?,?,?,?,?,?,?,?,?,?)";
@@ -22,15 +22,14 @@ public class AddPatientQuery {
 			pstm.setInt(1, id);
 			pstm.setString(2, patname);
 			pstm.setString(3, gender);
-			pstm.setInt(4, contact);
+			pstm.setLong(4, contact);
 			pstm.setString(5, bloodgrp);
 			pstm.setDate(6, dob);;
 			pstm.setString(7, address);
 			pstm.setString(8, district);
 			pstm.setString(9, state);
 			pstm.setString(10, remarks);
-			pstm.setString(11, casetaking);
-			System.out.println(sql);
+			pstm.setString(11, "");
 //			rs = pstm.executeQuery();
 //			if(rs.next()) {
 				return true;

@@ -175,7 +175,7 @@ String name = (String)session.getAttribute("usr");
                                                 <div class="card-header py-3">
                                                     <p class="text-primary m-0 font-weight-bold">Remarks</p>
                                                 </div>
-                                                <div class="card-body text-left" style="height: 107px;"><form:textarea path="remarks" class="form-control-lg" style="height: 108px;width: 315px;" /></textarea></div>
+                                                <div class="card-body text-left" style="height: 107px;"><form:textarea name="remarks" path="remarks" class="form-control-lg" style="height: 108px;width: 315px;" /></textarea></div>
                                             </div>
                                         </div>
                                     </div>
@@ -235,10 +235,10 @@ String name = (String)session.getAttribute("usr");
                                                     </div>
                                                     <div class="form-row">
                                                         <div class="col">
-                                                            <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable"><label for="bloodGroup">&nbsp;Blood Group<select path="bloodGroup" class="form-control form-control form-control-sm custom-select custom-select-sm"><option value="null" selected="">Select</option><option value="O-" selected="">O-</option><option value="O+">O+</option><option value="A-">A-</option><option value="100">A+</option><option value="B-">B-</option><option value="B+">B+</option><option value="AB-">AB-</option><option value="AB+">AB+</option></select>&nbsp;</label></div>
+                                                            <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable"><label for="bloodGroup">&nbsp;Blood Group<select path="bloodGroup" name = "bloodgroup"class="form-control form-control form-control-sm custom-select custom-select-sm"><option value="null" selected="">Select</option><option value="O-" selected="">O-</option><option value="O+">O+</option><option value="A-">A-</option><option value="100">A+</option><option value="B-">B-</option><option value="B+">B+</option><option value="AB-">AB-</option><option value="AB+">AB+</option></select>&nbsp;</label></div>
                                                         </div>
                                                         <div class="col">
-                                                            <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable"><label style="margin: 2px;" for="gender">Gender&nbsp;<select path="gender" class="form-control form-control form-control-sm custom-select custom-select-sm"><option value="Male" selected="">Male</option><option value="Female">Female</option><option value="Other">Rather not say</option></select>&nbsp;</label></div>
+                                                            <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable"><label style="margin: 2px;" for="gender">Gender&nbsp;<select path="gender" name = "gender" class="form-control form-control form-control-sm custom-select custom-select-sm"><option value="Male" selected="">Male</option><option value="Female">Female</option><option value="Other">Rather not say</option></select>&nbsp;</label></div>
                                                         </div>
                                                     </div>
                                             </div>
