@@ -65,7 +65,7 @@ public class Patient {
 
 	
 	public Patient(int patientId, String patientName, String gender, long phoneNo, String bloodGroup,
-			java.util.Date dob, String address, String district, String state) {
+			java.sql.Date dob, String address, String district, String state) {
 		// TODO Auto-generated constructor stub
 		super();
 		this.setPatientId(patientId);
