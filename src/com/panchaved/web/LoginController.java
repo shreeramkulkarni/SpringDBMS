@@ -31,7 +31,7 @@ public class LoginController {
 	@RequestMapping(method=RequestMethod.POST)
 	public String login(HttpServletRequest req,@RequestParam("username") String username,@RequestParam("password")String password,@RequestParam("radiob")String radio , Model model) {
 //		RequestDispatcher rd = req.getRequestDispatcher("WEB-INF/views/html");
-		System.out.println(radio);
+		
 		if(LoginQuery.selectQueryLogin(username,password)) {
 			
 			HttpSession session = req.getSession();
@@ -54,7 +54,6 @@ public class LoginController {
 		HttpSession s = request.getSession(false);
 		if(session.isLoggedIn(request)) {
 			s.invalidate();
-			//System.out.println(isLoggedIn(request));
 			return "login.jsp";
 		}
 		return "success.jsp";

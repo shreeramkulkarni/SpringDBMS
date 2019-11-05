@@ -48,6 +48,21 @@ public class Patient {
 	public Patient() {}
 
 	
+	public Patient(int patientId, String patientName, String gender, long phoneNo, String bloodGroup,
+			java.util.Date dob, String address, String district, String state) {
+		// TODO Auto-generated constructor stub
+		super();
+		this.setPatientId(patientId);
+		this.patientName = patientName;
+		this.gender = gender;
+		this.phoneNo = phoneNo;
+		this.bloodGroup = bloodGroup;
+		this.dob = dob;
+		this.address = address;
+		this.district = district;
+		this.state = state;
+	}
+
 	public String getPatientName() {
 		return patientName;
 	}

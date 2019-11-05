@@ -39,16 +39,17 @@ public class PatientService {
 		
 	}
 	
-	public 
+
 	
 	
-	public List getAllRecords() {
-		ResultSet rs = PatientQuery.selectQueryPatient("0");
+	public ArrayList<Patient> getAllRecords(int page) {
+		int o = (page-1) * 20;
+		System.out.println(Integer.toString(o));
+		ResultSet rs = PatientQuery.selectQueryPatient(Integer.toString(o));
 		patients.clear();
 		try {
 			while(rs.next()) {
 				int patientId = rs.getInt(1);
-				System.out.println(patientId);
 				String patientName = rs.getString("patientName");
 				String gender = rs.getString(3);
 				long phoneNo = rs.getLong(4);
@@ -59,15 +60,14 @@ public class PatientService {
 				String state = rs.getString(9);
 				Patient patient = new Patient(patientId, patientName, gender, phoneNo, bloodGroup, dob, address, district, state);
 				patients.add(patient);
-				System.out.println(Arrays.toString(patients.toArray()));
-
+				
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		 
-		return patients;
+		return (ArrayList<Patient>) patients;
 	}
 	
 }
