@@ -39,9 +39,9 @@
                 <hr class="sidebar-divider my-0">
                 <ul class="nav navbar-nav text-light" id="accordionSidebar">
                     <li class="nav-item" role="presentation"></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link active" href="dashboard.html"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="emp-mgmt.html"><i class="fas fa-window-maximize"></i><span>Employees</span></a><a class="nav-link" href="newpatient.html"><i class="fas fa-user"></i><span>New Patient</span></a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link active" href="table.html"><i class="fas fa-table"></i><span>Table</span></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="/SpringDBMS/admin"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/SpringDBMS/admin/patient/new"><i class="fas fa-user"></i><span>New Patient</span></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="/SpringDBMS/admin/patient"><i class="fas fa-table"></i><span>Show patient</span></a></li>
                     <li class="nav-item" role="presentation"></li>
                     <li class="nav-item" role="presentation"></li>
                 </ul>
@@ -185,7 +185,7 @@
 				<c:forEach items="${patient}" var="user">
                                         
                                          <tr id="sTr">
-                                            <td><c:out value="${user.patientId}"/></td>
+                                            <td><a href='/SpringDBMS/admin/patient/update?patientId=${user.patientId}'><c:out value="${user.patientId}"/></a></td>
                                             <td><c:out value="${user.patientName}"/></td>
                                             <td><c:out value="${user.gender}"/></td>
                                             <td><c:out value="${user.bloodGroup}"/></td>

@@ -64,7 +64,7 @@ public class AdminController {
 		return "ajaxTest.jsp";
 		//		model.addAttribute("patient", pService.getAllRecords());
 	}
-
+	@RequestMapping(value="/patient/new", method = RequestMethod.GET)
 	public String newPatient(Model model, HttpServletRequest req) {
 		System.out.println("Get req");
 		HttpSession s = req.getSession(false);
@@ -81,5 +81,13 @@ public class AdminController {
 			System.out.println("Done");
 
 		return "success.jsp";
+	}
+	
+	@RequestMapping(value="/patient/update", method = RequestMethod.GET)
+	public String updatePatient(Model model,@RequestParam("patientId") Integer id) {
+		System.out.println("inside update patient method : "+id);
+			System.out.println("Done");
+
+		return "updatePatient.jsp";
 	}
 }

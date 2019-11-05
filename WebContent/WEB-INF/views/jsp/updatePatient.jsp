@@ -29,7 +29,7 @@
                 <ul class="nav navbar-nav text-light" id="accordionSidebar">
                     <li class="nav-item" role="presentation"></li>
                     <li class="nav-item" role="presentation"><a class="nav-link active" href="/SpringDBMS/admin"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link active" href="newpatient.html"><i class="fas fa-user"></i><span>New Patient</span></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="#"><i class="fas fa-user"></i><span>Update Patient</span></a></li>
                     <li class="nav-item"
                         role="presentation"><a class="nav-link" href="/SpringDBMS/admin/patient"><i class="fas fa-table"></i><span>Show patient</span></a></li>
                     <li class="nav-item" role="presentation"></li>
@@ -142,7 +142,7 @@
                 </nav>
                 <form action="/SpringDBMS/admin/patient/new" method="post" >
                     <div class="container-fluid">
-                        <h3 class="text-dark mb-4">Create Patient Profile</h3>
+                        <h3 class="text-dark mb-4">Update Patient Profile</h3>
                         <div class="row mb-3">
                             <div class="col-lg-4">
                                 <div class="card">
