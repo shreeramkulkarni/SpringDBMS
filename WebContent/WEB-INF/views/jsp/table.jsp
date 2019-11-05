@@ -13,10 +13,20 @@
     <title>Table - Panch-Karm Clinic</title>
     <link rel="stylesheet" href="<c:url value="/assets/bootstrap/css/bootstrap.min.css"/>">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
-    <link rel="stylesheet" href="<c:url value="assets/fonts/fontawesome-all.min.css"/>">
-    <link rel="stylesheet" href="<c:url value="assets/css/MUSA_panel-table-1.css"/>">
-    <link rel="stylesheet" href="<c:url value="assets/css/MUSA_panel-table.css"/>">
-    <link rel="stylesheet" href="<c:url value="assets/css/Navigation-Clean.css"/>">
+    <link rel="stylesheet" href="<c:url value="/assets/fonts/fontawesome-all.min.css"/>">
+    <link rel="stylesheet" href="<c:url value="/assets/css/MUSA_panel-table-1.css"/>">
+    <link rel="stylesheet" href="<c:url value="/assets/css/MUSA_panel-table.css"/>">
+    <link rel="stylesheet" href="<c:url value="/assets/css/Navigation-Clean.css"/>">
+	
+	<script src="<c:url value="/assets/js/jquery.min.js"/>"></script>
+    <script src="<c:url value="/assets/bootstrap/js/bootstrap.min.js"/>"></script>
+    <script src="<c:url value="/assets/js/chart.min.js"/>"></script>
+    <script src="<c:url value="/assets/js/bs-charts.js"/>"></script>
+	<script src="<c:url value="/assets/js/theme.js"/>"></script>
+	<script src="<c:url value="/assets/js/jquery-3.4.1.min.js"/>"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+    <script src="<c:url value="/assets/js/search.js"/>"></script>
+
 </head>
 
 <body id="page-top">
@@ -171,9 +181,10 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+			
 				<c:forEach items="${patient}" var="user">
                                         
-                                         <tr>
+                                         <tr id="sTr">
                                             <td><c:out value="${user.patientId}"/></td>
                                             <td><c:out value="${user.patientName}"/></td>
                                             <td><c:out value="${user.gender}"/></td>
@@ -184,7 +195,7 @@
                                             <td><c:out value="${user.district}"/></td>
                                             <td><c:out value="${user.state}"/></td>
                                         </tr>
-			</c:forEach>                                        
+			</c:forEach>
                                     </tbody>
                                    
                                 </table>
@@ -192,16 +203,14 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-6 align-self-center">
-                                    <p id="dataTable_info" class="dataTables_info" role="status" aria-live="polite">Showing 1 to 10 of 27</p>
+                                    <p id="dataTable_info" class="dataTables_info" role="status" aria-live="polite">Showing page 1</p>
                                 </div>
                                 <div class="col-md-6">
                                     <nav class="d-lg-flex justify-content-lg-end dataTables_paginate paging_simple_numbers">
                                         <ul class="pagination">
-                                            <li class="page-item disabled"><a class="page-link" href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
-                                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                            <li class="page-item"><a class="page-link" href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                                            <li ><button id="previous" onclick="getPPage()"> << </button> </li>
+                                           
+                                            <li ><button id="next" onclick="getNPage()"> >> </button>  </li>
                                         </ul>
                                     </nav>
                                 </div>
@@ -216,13 +225,7 @@
                 </div>
             </footer>
         </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a></div>
-    <script src="<c:url value="assets/js/jquery.min.js"/>"></script>
-    <script src="<c:url value="assets/bootstrap/js/bootstrap.min.js"/>"></script>
-    <script src="<c:url value="assets/js/chart.min.js"/>"></script>
-    <script src="<c:url value="assets/js/bs-charts.js"/>"></script>
-	<script src="<c:url value="assets/js/theme.js"/>"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
-    <script src="<c:url value="assets/js/search.js"/>"></script>
+    
 </body>
 
 </html>

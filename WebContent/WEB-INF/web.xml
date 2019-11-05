@@ -24,6 +24,6 @@
   </servlet-mapping>
   
   
-<!--  <absolute-ordering></absolute-ordering>  -->
+<absolute-ordering></absolute-ordering>
   
 </web-app>
