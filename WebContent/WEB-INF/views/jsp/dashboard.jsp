@@ -27,9 +27,9 @@
                 <ul class="nav navbar-nav text-light" id="accordionSidebar">
                     <li class="nav-item" role="presentation"></li>
                     <li class="nav-item" role="presentation"><a class="nav-link active" href="dashboard.html"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="emp-mgmt.html"><i class="fas fa-window-maximize"></i><span>Employee Management</span></a><a class="nav-link" href="/SpringDBMS/admin/patient/new"><i class="fas fa-user"></i><span>New Patient</span></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="emp-mgmt.html"><i class="fas fa-window-maximize"></i><span>Doctor</span></a></li>
                     <li class="nav-item"
-                        role="presentation"><a class="nav-link" href="/SpringDBMS/admin/patient"><i class="fas fa-table"></i><span>Table</span></a></li>
+                        role="presentation"><a class="nav-link" href="/SpringDBMS/admin/patient"><i class="fas fa-table"></i><span>Patient</span></a></li>
                     <li class="nav-item"
                         role="presentation"><a class="nav-link" href="/SpringDBMS/admin/ajax"><i class="fas fa-table"></i><span>ajax</span></a></li>
                     

@@ -38,7 +38,6 @@ function getNPage() {
 		url : "http://localhost:8080/SpringDBMS/admin/ajaxPatient",
 		data : "page="+currPageNo,
 		success : function(data) {
-			
 			loadData(data);
 		}
 	});
@@ -50,7 +49,7 @@ function loadData(data) {
 		$("td").remove();
 	for(i=0 ; i< data.length; i++){
 
-		let dyData = "<td>"+data[i].patientId+"</td>"+
+		let dyData = "<td><a href=/SpringDBMS/admin/patient/update?patientId="+data[i].patientId+">"+data[i].patientId+"</a></td>"+
 		"<td>"+data[i].patientName+"</td>"+
 		"<td>"+data[i].gender+"</td>"+
 		"<td>"+data[i].bloodGroup+"</td>"+
