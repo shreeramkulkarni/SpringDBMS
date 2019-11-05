@@ -25,7 +25,8 @@ public class PatientService {
 	//patient.add(new Patient("sa", "a", 88, "a", new Date("2014-02-14"), "a", "a", "aaa"));
 	}
 	public Connection con=null;
-	public void registerPatient() {
+	public void registerPatient() 
+	{
 		
 		Connection con = DbConnect.Connect();
 		try {
@@ -35,7 +36,11 @@ public class PatientService {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
+		this.district = district;
+		this.state = state;
+		this.remarks = remarks;
+		this.casetaking = casetaking;
 	}
 
 	public List getAllRecords() {
