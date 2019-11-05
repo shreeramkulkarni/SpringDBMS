@@ -69,5 +69,6 @@ public class PatientService {
 		 
 		return (ArrayList<Patient>) patients;
 	}
+
 	
 }

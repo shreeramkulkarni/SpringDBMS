@@ -2,6 +2,7 @@ package com.panchaved.web;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.sql.Date;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -65,7 +66,7 @@ public class AdminController {
 	}
 
 	public String newPatient(Model model, HttpServletRequest req) {
-		System.out.println("sdfafasfasjygb");
+		System.out.println("Get req");
 		HttpSession s = req.getSession(false);
 		model.addAttribute("user",s.getAttribute("user") );
 		model.addAttribute("addpatient",new Patient());
@@ -73,15 +74,12 @@ public class AdminController {
 	}
 
 	@RequestMapping(value="/patient/new", method = RequestMethod.POST)
-	public String addPatient(Model model,HttpServletRequest req, @ModelAttribute("addpatient")Patient newPat, BindingResult result) {
+	public String addPatient(Model model,@RequestParam("patientId") Integer id,@RequestParam("phoneNo") long contact,@RequestParam("remarks") String remarks,@RequestParam("patientName") String name,@RequestParam("dob") Date dob,@RequestParam("bloodgroup") String bloodgrp,@RequestParam("gender") String gender,@RequestParam("address") String address,@RequestParam("district") String district,@RequestParam("state") String state) {
 		System.out.println("POST request");
-		if(!result.hasErrors())
-			System.out.println("No errors!!!!!!"); 
-		System.out.println(newPat.getPatientName()) ;
-		System.out.println(newPat.getBloodGroup());
+		System.out.println(id+" "+bloodgrp+" "+name+" "+dob+" ");
+		//if(pService.insertPatient(id, name, gender, contact, bloodgrp, dob, address, district, state, remarks))
+			System.out.println("Done");
 
-		//if(AddPatientQuery.insertPatient(id, patname, gender, contact, bloodgrp, dob, address, district, state, remarks, casetaking))
-		//		model.addAttribute("patient", pService.getAllRecords());
 		return "success.jsp";
 	}
 }
