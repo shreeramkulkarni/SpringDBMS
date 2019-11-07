@@ -8,13 +8,12 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import org.springframework.stereotype.Component;
+//import org.springframework.stereotype.Component;
 
 import com.panchaved.enitity.Patient;
 import com.panchaved.util.DbConnect;
 import com.panchaved.util.PatientQuery;
 
-@Component
 public class PatientService {
 	
 	public List<Patient> patients;
@@ -22,7 +21,7 @@ public class PatientService {
 	patients = new ArrayList<Patient>();
 	//patient.add(new Patient("sa", "a", 88, "a", new Date("2014-02-14"), "a", "a", "aaa"));
 	}
-	public Connection con=null;
+	
 	public void registerPatient() {
 		
 		Connection con = DbConnect.Connect();
@@ -37,9 +36,10 @@ public class PatientService {
 	}
 	
 
-	public static boolean insertPatient(Integer id, String patname, String gender, long contact, String bloodgrp,Date dob,String address,String district,String state,String remarks)
+	public boolean insertPatient(Integer id, String patname, String gender, long contact, String bloodgrp,Date dob,String address,String district,String state,String remarks)
 	{
 		try {
+			
 			String sql ="insert into patient values(?,?,?,?,?,?,?,?,?,?,?)";
 			PreparedStatement pstm = PatientQuery.insertQueryPatient();
 			pstm.setInt(1, id);
@@ -53,10 +53,10 @@ public class PatientService {
 			pstm.setString(9, state);
 			pstm.setString(10, remarks);
 			pstm.setString(11, "");
-//			rs = pstm.executeQuery();
-//			if(rs.next()) {
-				return true;
-//			}
+			int count = pstm.executeUpdate();
+			if(count!=0) {
+				return true; 
+			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
