@@ -21,13 +21,13 @@
         <nav class="navbar navbar-dark flex-shrink-0 align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
             <div class="container-fluid d-flex flex-column p-0">
                 <a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
-                    <div class="sidebar-brand-text mx-3" style="margin: 0px;padding: 0px;background-size: auto;background-position: left;"><span style="padding: 0px;margin-right: 0px;">Panch-Karm Clinic</span></div>
+                    <div class="sidebar-brand-text mx-3" style="margin: 0px;padding: 0px;background-size: auto;background-position: left;"><span style="padding: 0px;margin-right: 0px;">PANCHAVED</span></div>
                 </a>
                 <hr class="sidebar-divider my-0">
                 <ul class="nav navbar-nav text-light" id="accordionSidebar">
                     <li class="nav-item" role="presentation"></li>
                     
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="emp-mgmt.html"><i class="fas fa-window-maximize"></i><span>Doctor</span></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/SpringDBMS/admin/doctor"><i class="fas fa-window-maximize"></i><span>Doctor</span></a></li>
                     <li class="nav-item"
                         role="presentation"><a class="nav-link" href="/SpringDBMS/admin/patient"><i class="fas fa-table"></i><span>Patient</span></a></li>
                     <li class="nav-item"

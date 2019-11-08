@@ -1,6 +1,5 @@
 package com.panchaved.web;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -19,10 +18,9 @@ import com.panchaved.util.LoginQuery;
 @RequestMapping("/")
 public class LoginController {
 
-	AppSession session;
 	@RequestMapping(method=RequestMethod.GET)
 	public String login(HttpServletRequest req) {
-		if(!session.isLoggedIn(req)) {
+		if(!AppSession.isLoggedIn(req)) {
 		System.out.println("login called!");
 		return "login.jsp";
 		}
@@ -52,7 +50,7 @@ public class LoginController {
 	public String logout(HttpServletRequest request) {
 
 		HttpSession s = request.getSession(false);
-		if(session.isLoggedIn(request)) {
+		if(AppSession.isLoggedIn(request)) {
 			s.invalidate();
 			return "login.jsp";
 		}
