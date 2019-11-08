@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" session="false" %>
+    
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 
@@ -9,13 +10,24 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Profile - Panch-Karm Clinic</title>
+    <title>Table - Panch-Karm Clinic</title>
     <link rel="stylesheet" href="<c:url value="/assets/bootstrap/css/bootstrap.min.css"/>">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
     <link rel="stylesheet" href="<c:url value="/assets/fonts/fontawesome-all.min.css"/>">
     <link rel="stylesheet" href="<c:url value="/assets/css/MUSA_panel-table-1.css"/>">
     <link rel="stylesheet" href="<c:url value="/assets/css/MUSA_panel-table.css"/>">
     <link rel="stylesheet" href="<c:url value="/assets/css/Navigation-Clean.css"/>">
+	
+	<script src="<c:url value="/assets/js/jquery.min.js"/>"></script>
+    <script src="<c:url value="/assets/bootstrap/js/bootstrap.min.js"/>"></script>
+    <script src="<c:url value="/assets/js/chart.min.js"/>"></script>
+    <script src="<c:url value="/assets/js/bs-charts.js"/>"></script>
+	<script src="<c:url value="/assets/js/theme.js"/>"></script>
+	<script src="<c:url value="/assets/js/jquery-3.4.1.min.js"/>"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+    <script src="<c:url value="/assets/js/search.js"/>"></script>
+    <script src="<c:url value="/assets/js/doctorAjax.js"/>"></script>
+
 </head>
 
 <body id="page-top">
@@ -29,9 +41,8 @@
                 <ul class="nav navbar-nav text-light" id="accordionSidebar">
                     <li class="nav-item" role="presentation"></li>
                     <li class="nav-item" role="presentation"><a class="nav-link active" href="/SpringDBMS/admin"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link active" href="#"><i class="fas fa-user"></i><span>Update Patient</span></a></li>
-                    <li class="nav-item"
-                        role="presentation"><a class="nav-link" href="/SpringDBMS/admin/patient"><i class="fas fa-table"></i><span>Show patient</span></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/SpringDBMS/admin/patient/new"><i class="fas fa-user"></i><span>New Doctor</span></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="/SpringDBMS/admin/patient"><i class="fas fa-table"></i><span>Show doctors</span></a></li>
                     <li class="nav-item" role="presentation"></li>
                     <li class="nav-item" role="presentation"></li>
                 </ul>
@@ -43,7 +54,7 @@
                 <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
                     <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
                         <form class="form-inline d-none d-sm-inline-block mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                            <h3 class="text-dark mb-0">Update Patiennt</h3>
+                            <h3 class="text-dark mb-0"></h3>
                         </form>
                         <ul class="nav navbar-nav flex-nowrap ml-auto">
                             <li class="nav-item dropdown d-sm-none no-arrow"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><i class="fas fa-search"></i></a>
@@ -140,131 +151,70 @@
                         </ul>
                     </div>
                 </nav>
-                <form action="/SpringDBMS/admin/patient/new" method="post" >
-                    <div class="container-fluid">
-                        <h3 class="text-dark mb-4">Update Patient Profile</h3>
-                        <div class="row mb-3">
-                            <div class="col-lg-4">
-                                <div class="card">
-                                    <div class="card-header py-3">
-                                        <p class="text-primary m-0 font-weight-bold">Basic Details</p>
-                                    </div>
-    <!-- Basic Details -->
-                                    <div class="card-body" style="margin: 0px;">
-                                            <div class="form-row">
-                                                <div class="col">
-                                                    <div class="form-group"><label for="patientId"><strong>Patient Id</strong><br></label><input path = "patientId" class="form-control" type="tel" inputmode="numeric" minlength="3" maxlength="6" required="" autofocus="" placeholder="3-6 digits" name="patientId" /></div>
-                                                </div>
-                                                <div class="col">
-                                                    <div class="form-group"><label for="phoneNo"><strong>Mobile Number</strong><br></label><input path = "phoneNo" class="form-control" type="tel" name="phoneNo" inputmode="numeric" minlength="10" maxlength="10" required="" autofocus="" placeholder="mobile num" /></div>
-                                                </div>
-                                            </div>
-                                    </div>
+                <div class="container-fluid">
+                    <h3 class="text-dark mb-4">Team</h3>
+                    <div class="card shadow">
+                        <div class="card-header py-3">
+                            <p class="text-primary m-0 font-weight-bold">Employee Info</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6 text-nowrap">
+                                    <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable"><label>Show&nbsp;<select class="form-control form-control-sm custom-select custom-select-sm"><option value="10" selected="">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select>&nbsp;</label></div>
                                 </div>
-                                <br><br><br><br>
-                                <div class="row" style="margin: 10px;padding: -22px;height: 215px;">
-                                    <div class="col offset-md-0">
-                                        <div class="form-group">
-                                            <div class="card shadow" style="height: 202px;margin: 0;">
-    <!-- Remarks -->
-                                                <div class="card-header py-3">
-                                                    <p class="text-primary m-0 font-weight-bold">Remarks</p>
-                                                </div>
-                                                <div class="card-body text-left" style="height: 107px;"><textarea name="remarks" path="remarks" class="form-control-lg" style="height: 108px;width: 315px;" /></textarea></div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div class="col-md-6">
+                                    <div class="text-md-right dataTables_filter" id="dataTable_filter"><label><input type="search" class="form-control form-control-sm" aria-controls="dataTable" placeholder="Search" autocomplete="on" id="searchbar" onkeyup="searchFunction()"></label></div>
                                 </div>
                             </div>
-                            <div class="col-lg-8">
-                                <div class="row mb-3 d-none">
-                                    <div class="col">
-                                        <div class="card text-white bg-primary shadow">
-                                            <div class="card-body">
-                                                <div class="row mb-2">
-                                                    <div class="col">
-                                                        <p class="m-0">Peformance</p>
-                                                        <p class="m-0"><strong>65.2%</strong></p>
-                                                    </div>
-                                                    <div class="col-auto"><i class="fas fa-rocket fa-2x"></i></div>
-                                                </div>
-                                                <p class="text-white-50 small m-0"><i class="fas fa-arrow-up"></i>&nbsp;5% since last month</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="card text-white bg-success shadow">
-                                            <div class="card-body">
-                                                <div class="row mb-2">
-                                                    <div class="col">
-                                                        <p class="m-0">Peformance</p>
-                                                        <p class="m-0"><strong>65.2%</strong></p>
-                                                    </div>
-                                                    <div class="col-auto"><i class="fas fa-rocket fa-2x"></i></div>
-                                                </div>
-                                                <p class="text-white-50 small m-0"><i class="fas fa-arrow-up"></i>&nbsp;5% since last month</p>
-                                            </div>
-                                        </div>
-                                    </div>
+                            <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
+                                <table class="table dataTable my-0" id="dataTable">
+                                    <thead>
+                                        <tr>
+                                        	<th>Id</th>
+                                            <th>Name</th>
+                                            <th>Mobile</th>
+                                            <th>D.O.B.</th>
+                                            <th>Qualification</th>
+                                            <th>Address</th>
+                                            <th>City</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+			
+				<c:forEach items="${doctor}" var="user">
+                                        
+                                         <tr id="sTr">
+                                            <td><a onclick="" href='/SpringDBMS/admin/doctor/update?doctorId=${user.doctorId}'><c:out value="${user.doctorId}"/></a></td>
+                                            <td><c:out value="${user.doctorName}"/></td>
+                                            <td><c:out value="${user.doctorMobile}"/></td>
+                                            <td><c:out value="${user.doctorDOB}"/></td>
+                                            <td><c:out value="${user.doctorQualification}"/></td>
+                                            <td><c:out value="${user.doctorAddress}"/></td>
+                                            <td><c:out value="${user.doctorCity}"/></td>
+                                        </tr>
+			</c:forEach>
+                                    </tbody>
+                                   
+                                </table>
+                                
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 align-self-center">
+                                    <p id="dataTable_info" class="dataTables_info" role="status" aria-live="polite">Showing page 1</p>
                                 </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="card shadow mb-3">
-                                            <div class="card-header py-3">
-                                                <p class="text-primary m-0 font-weight-bold">Secondary Details</p>
-                                                <p class="text-primary m-0 font-weight-bold"></p>
-                                            </div>
-    <!-- Secondary Details                                         -->
-                                            <div class="card-body">
-                                              <!--  <form id="f2"> -->
-                                                    <div class="form-row">
-                                                        <div class="col">
-                                                            <div class="form-group"><label for="first_name"><strong>Patient Name</strong></label><input path = "patientName" class="form-control" type="text" placeholder="Babu rao" name="patientName" style="margin: -7px;"/></div>
-                                                        </div>
-                                                        <div class="col">
-                                                            <div class="form-group">
-                                                                <div class="col"><label for="dob" style="height: 0px;"><strong>Date of Birth</strong></label><input path = "dob" class="form-control form-control-lg d-flex justify-content-center align-items-center align-content-center" type="date"
-                                                                        name="dob" style="font-size: 16px;margin: 0px;height: 38px;" required=""/></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-row">
-                                                        <div class="col">
-                                                            <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable"><label for="bloodGroup">&nbsp;Blood Group<select path="bloodGroup" name = "bloodgroup"class="form-control form-control form-control-sm custom-select custom-select-sm"><option value="null" selected="">Select</option><option value="O-" selected="">O-</option><option value="O+">O+</option><option value="A-">A-</option><option value="100">A+</option><option value="B-">B-</option><option value="B+">B+</option><option value="AB-">AB-</option><option value="AB+">AB+</option></select>&nbsp;</label></div>
-                                                        </div>
-                                                        <div class="col">
-                                                            <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable"><label style="margin: 2px;" for="gender">Gender&nbsp;<select path="gender" name = "gender" class="form-control form-control form-control-sm custom-select custom-select-sm"><option value="Male" selected="">Male</option><option value="Female">Female</option><option value="Other">Rather not say</option></select>&nbsp;</label></div>
-                                                        </div>
-                                                    </div>
-                                            </div>
-                                        </div>
-    
-                                        <div class="card shadow">
-                                            <div class="card-header py-3">
-                                                <p class="text-primary m-0 font-weight-bold">Address</p>
-                                            </div>
-    <!-- Address -->
-                                            <div class="card-body">
-                                                    <div class="form-group"><label for="address"><strong>Address</strong></label><input path = "address" class="form-control" type="text" name="address"/></div>
-                                                    <div class="form-row">
-                                                        <div class="col">
-                                                            <div class="form-group"><label for="district"><strong>District</strong></label><input path = "district" class="form-control" type="text" name="district"/></div>
-                                                        </div>
-                                                        <div class="col">
-                                                            <div class="form-group"><label for="state"><strong>State</strong></label><input path = "state" class="form-control" type="text" name="state"/></div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group"><button class="btn btn-primary" type="submit">Save</button></div>
-                                               
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div class="col-md-6">
+                                    <nav class="d-lg-flex justify-content-lg-end dataTables_paginate paging_simple_numbers">
+                                        <ul class="pagination">
+                                            <li ><button id="previousD" onclick="getPPage()"> << </button> </li>
+                                           
+                                            <li ><button id="nextD" onclick="getNPage()"> >> </button>  </li>
+                                        </ul>
+                                    </nav>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </form>
-                
+                </div>
             </div>
             <footer class="bg-white sticky-footer">
                 <div class="container my-auto">
@@ -272,13 +222,7 @@
                 </div>
             </footer>
         </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a></div>
-        <script src="<c:url value="/assets/js/jquery.min.js"/>"></script>
-        <script src="<c:url value="/assets/bootstrap/js/bootstrap.min.js"/>"></script>
-        <script src="<c:url value="/assets/js/chart.min.js"/>"></script>
-        <script src="<c:url value="/assets/js/bs-charts.js"/>"></script>
-        <script src="<c:url value="/assets/js/theme.js"/>"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
-        <script src="<c:url value="/assets/js/search.js"/>"></script>
+    
 </body>
 
 </html>

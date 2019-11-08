@@ -6,20 +6,21 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
-//import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.panchaved.enitity.Patient;
 import com.panchaved.util.DbConnect;
 import com.panchaved.util.PatientQuery;
 
+
 public class PatientService {
 	
-	public List<Patient> patients;
+
+	public ArrayList<Patient> patients;
 	public PatientService() {
-	patients = new ArrayList<Patient>();
-	//patient.add(new Patient("sa", "a", 88, "a", new Date("2014-02-14"), "a", "a", "aaa"));
+		this.patients = new ArrayList<Patient>();
 	}
 	
 	public void registerPatient() {

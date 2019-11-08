@@ -13,12 +13,6 @@ public class PatientQuery {
 	private static Connection con = DbConnect.Connect();
 	static ResultSet rs;
 
-
-	static PreparedStatement insertQueryPatient(String limit) {
-
-		return pstm;
-	}
-
 	public static ResultSet selectQueryPatient(String offset) {
 		try {
 			String sql ="select * from patient limit "+offset+",20";
