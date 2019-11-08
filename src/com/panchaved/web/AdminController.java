@@ -38,7 +38,7 @@ public class AdminController {
 	public String dashboard(HttpServletRequest req) {
 		HttpSession session = req.getSession(false);
 		//System.out.println("session var:"+session.getAttribute("user"));
-		return "dashboard.jsp";
+		return "adminDashboard.jsp";
 	}
 
 	@RequestMapping(value="/patient",method = RequestMethod.GET)
