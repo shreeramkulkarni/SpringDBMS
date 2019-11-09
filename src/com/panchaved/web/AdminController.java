@@ -1,6 +1,7 @@
 package com.panchaved.web;
 
 import java.util.List;
+import java.io.Reader;
 import java.sql.Date;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -10,12 +11,15 @@ import com.google.gson.reflect.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.panchaved.enitity.Doctor;
 import com.panchaved.enitity.Patient;
+import com.panchaved.service.DoctorService;
 import com.panchaved.service.PatientService;
 import com.panchaved.util.AppSession;
 
@@ -23,8 +27,12 @@ import com.panchaved.util.AppSession;
 @RequestMapping("/admin")
 public class AdminController {
 
+	
 	@Autowired
 	PatientService pService;
+	@Autowired DoctorService dService;
+	
+	
 	AppSession session;
 
 	@RequestMapping(method = RequestMethod.GET)
@@ -50,13 +58,13 @@ public class AdminController {
 		return json;
 	}
 
-	@RequestMapping(value="/ajax", method = RequestMethod.GET)
-	public String ajaxTest(Model model ) {
-		return "ajaxTest.jsp";
-		//		model.addAttribute("patient", pService.getAllRecords());
-	}
+//	@RequestMapping(value="/ajax", method = RequestMethod.GET)
+//	public String ajaxTest(Model model ) {
+//		return "ajaxTest.jsp";
+//		//		model.addAttribute("patient", pService.getAllRecords());
+//	}
 	@RequestMapping(value="/patient/new", method = RequestMethod.GET)
-	public String newPatient(Model model, HttpServletRequest req) {
+	public String showNewPatientForm(Model model, HttpServletRequest req) {
 		System.out.println("Get req");
 		HttpSession s = req.getSession(false);
 		model.addAttribute("user",s.getAttribute("user") );
@@ -78,7 +86,7 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value="/patient/update", method = RequestMethod.GET)
-	public String updatePatient(Model model,@RequestParam("patientId") Integer id) {
+	public String showUpdatePatientForm(Model model,@RequestParam("patientId") Integer id) {
 		System.out.println("inside update patient method : "+id);
 			System.out.println("Done");
 			
@@ -87,20 +95,35 @@ public class AdminController {
 	
 	@RequestMapping(value="/doctor")
 	public String doctor(Model model) {
-		showDoctors(model, "1");	
-			return "doctorTable.jsp";
+		showDoctors(model, "1"); 
+		return "doctorTable.jsp";
 	}
 
 	@RequestMapping(value = "/ajaxDoctor", method = RequestMethod.GET)
 	public @ResponseBody JsonArray showDoctors(Model model,@RequestParam("page") String p) {
-		System.out.println("inside the showpatients()");
+		System.out.println("inside the showDoctors()");
 		int page = Integer.parseInt(p);
 		Gson gson = new Gson();
-		JsonElement element = gson.toJsonTree(pService.getAllRecords(page), new TypeToken<List<Patient>>() {}.getType());
+		JsonElement element = gson.toJsonTree(dService.getAllRecords(page), new TypeToken<List<Doctor>>() {}.getType());
 		JsonArray json = element.getAsJsonArray();
-		model.addAttribute("json",json);
-		model.addAttribute("patient", pService.getAllRecords(page));
+		
+		model.addAttribute("doctor", dService.getAllRecords(page));
 		return json;
+	}
+	
+	@RequestMapping(value="/doctor/update", method = RequestMethod.GET)
+	public String showUpdateForm(Model model,@RequestParam("doctorId") Integer id) {
+			
+			model.addAttribute("doctor",dService.getSelectedDoctor(id));
+			model.addAttribute("doc",new Doctor());
+		return "updateDoctor.jsp";
+	}
+	
+	@RequestMapping(value="/doctor/update",method = RequestMethod.POST)
+	public String updateDoctor(Model model,@ModelAttribute("doc") Doctor doc) {
+			System.out.println("upadating doc!");
+			dService.updateDoc(doc);
+		return "updateDoctor.jsp";
 	}
 	
 }

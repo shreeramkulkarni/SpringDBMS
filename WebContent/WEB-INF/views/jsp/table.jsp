@@ -26,7 +26,8 @@
 	<script src="<c:url value="/assets/js/jquery-3.4.1.min.js"/>"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
     <script src="<c:url value="/assets/js/search.js"/>"></script>
-
+	<script src="<c:url value="/assets/js/patientAjax.js"/>"></script>
+	
 </head>
 
 <body id="page-top">
