@@ -15,8 +15,7 @@ import com.panchaved.util.AppSession;
 @RequestMapping("/doctor")
 public class DoctorController {
 
-	@Autowired
-	PatientService pService;
+	
 	AppSession session;
 
 	@RequestMapping(method = RequestMethod.GET)
@@ -24,5 +23,5 @@ public class DoctorController {
 		HttpSession session = req.getSession(false);
 		//System.out.println("session var:"+session.getAttribute("user"));
 		return "doctorDashboard.jsp";
-	}	
-}
+	}
+}	
