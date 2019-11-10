@@ -1,7 +1,7 @@
 /**
  * 
  */
-
+var pat;
 $(function()
 		{
 			$("[name = 'hidethis']").hide();
@@ -9,9 +9,15 @@ $(function()
 			$("[id=proceed]").click(
 					function() 
 					{
+						console.log($("[name=patId]").val())
 						$("[name = hideafterproceed]").hide();
-						$("[name = 'hidethis']").show();	
-						$(this).prop("disabled",true);
+						$("[name = 'hidethis']").show();
+						$.ajax({
+							url : "http://localhost:8080/SpringDBMS/admin/update?patientId="+$("[name=patId]").val(),
+							success : function(data) {
+								loadData(data);
+							}
+						});	
 					}	
 				);
 			$("#next").click(
@@ -21,4 +27,14 @@ $(function()
 						$("[name='casetaking']").show();
 					});
 			
+			$("#back").click(
+					function(){
+						$("[name = hideafterproceed]").show();
+						$("[name = 'hidethis']").hide();
+					});
+			$("#reset").click(
+					function(){
+						$("[name = casetaking]").hide();
+						$("[name = 'hideafterproceed']").show();
+					});
 });

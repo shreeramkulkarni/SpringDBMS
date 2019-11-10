@@ -118,15 +118,14 @@
 				<div class="container-fluid">
 					<div class="row mb-4" name="hideafterproceed">
 						<div class="col md-4">
-							<form action="#" method="get">
-								<label for="patientId"><strong>Enter Patient Id</strong><br></label><input
-									path="patientId" class="form-control" type="tel"
+								<label for="patientId"><strong>Enter Patient Id</strong><br></label>
+								<input
+									class="form-control" type="tel"
 									inputmode="numeric" minlength="0" maxlength="6" required=""
-									autofocus="" placeholder="3-6 digits" name="patientId" />
-								<div class="form-group">
-									<button id="proceed" class="btn btn-primary mt-4" type="submit">Proceed</button>
+									autofocus="" placeholder="3-6 digits" name="patId" />
+								<div class="form-group mt-4">
+									<button id="proceed" class="btn btn-primary" type="submit">Proceed</button>
 								</div>
-							</form>
 						</div>
 						<div class="col md-4"></div>
 
@@ -348,14 +347,21 @@
 							<a href="#"><button id="next"
 									name="hidethis" class="btn btn-primary" type="submit">Next</button></a>
 						</div>
+						<div class="form-group d-inline ml-4">
+							<a href="#"><button id="back"
+									name="hidethis" class="btn btn-primary" type="submit">Back</button></a>
+						</div>
 					</div>
 					<div name="casetaking">
 						<form action="">
 							<div class = "row mb-4">
 								<strong> Casetaking </strong>
 							</div>
-							<textarea style="height:300px; width:300px"></textarea>
+							<textarea style="height:100px; width:400px"></textarea>
 							
+							<div class="form-group d-inline mt-4">
+							<a href="#"><button id="reset" class="btn btn-primary" type="submit">Reset</button></a>
+						</div>
 						</form>
 					</div>
 				</div>
