@@ -41,8 +41,8 @@
                 <ul class="nav navbar-nav text-light" id="accordionSidebar">
                     <li class="nav-item" role="presentation"></li>
                     <li class="nav-item" role="presentation"><a class="nav-link active" href="/SpringDBMS/admin"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="/SpringDBMS/admin/patient/new"><i class="fas fa-user"></i><span>New Doctor</span></a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link active" href="/SpringDBMS/admin/patient"><i class="fas fa-table"></i><span>Show doctors</span></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/SpringDBMS/admin/doctor/new"><i class="fas fa-user"></i><span>New Doctor</span></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="/SpringDBMS/admin/doctor"><i class="fas fa-table"></i><span>Show doctors</span></a></li>
                     <li class="nav-item" role="presentation"></li>
                     <li class="nav-item" role="presentation"></li>
                 </ul>

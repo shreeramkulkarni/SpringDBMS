@@ -89,8 +89,22 @@ public class AdminController {
 	public String showUpdatePatientForm(Model model,@RequestParam("patientId") Integer id) {
 		System.out.println("inside update patient method : "+id);
 			System.out.println("Done");
-			
+			model.addAttribute("patient",pService.getSelectedPatient(id));
+			System.out.println(pService.getSelectedPatient(id).getRemarks());
 		return "updatePatient.jsp";
+	}
+	
+	@RequestMapping(value="/patient/update",method = RequestMethod.POST)
+	public String updatePatient(Model model,@ModelAttribute("patient") Patient patient) {
+			System.out.println("upadating doc!");
+			
+			if(pService.updatePatient(patient)) {
+				model.addAttribute("success_msg","Patient updated with Id: +"+patient.getPatientId());
+			}else {
+				model.addAttribute("success_msg","Sorry couldnt Update patient! Please Retry");
+			}
+		
+			return "updatePatient.jsp";
 	}
 	
 	@RequestMapping(value="/doctor")
@@ -124,6 +138,23 @@ public class AdminController {
 			System.out.println("upadating doc!");
 			dService.updateDoc(doc);
 		return "updateDoctor.jsp";
+	}
+	
+	@RequestMapping(value="/doctor/new",method = RequestMethod.GET)
+	public String showNewDoctorForm(Model model) {
+		model.addAttribute("doc",new Doctor());
+		return "newDoctor.jsp";
+	}
+	
+	@RequestMapping(value = "/doctor/new" , method = RequestMethod.POST)
+	public String addDoctor(Model model, @ModelAttribute("doc") Doctor doc) {
+			System.out.println("adding doc!");
+			if(dService.insertDoctor(doc)) {
+				model.addAttribute("success_msg", "New Doctor added successfully with ID:"+doc.getDoctorId());
+			}else {
+				model.addAttribute("success_msg", "Sorry Could Not Add Patient Please Retry ");
+			}
+		return "newDoctor.jsp";
 	}
 	
 }

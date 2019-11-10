@@ -29,7 +29,7 @@
                 <ul class="nav navbar-nav text-light" id="accordionSidebar">
                     <li class="nav-item" role="presentation"></li>
                     <li class="nav-item" role="presentation"><a class="nav-link active" href="/SpringDBMS/admin"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link active" href="#"><i class="fas fa-user"></i><span>Update Doctor</span></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="#"><i class="fas fa-user"></i><span>New Doctor</span></a></li>
                     <li class="nav-item"
                         role="presentation"><a class="nav-link" href="/SpringDBMS/admin/doctor"><i class="fas fa-table"></i><span>Show Doctors</span></a></li>
                     <li class="nav-item" role="presentation"></li>
@@ -43,7 +43,7 @@
                 <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
                     <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
                         <form class="form-inline d-none d-sm-inline-block mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                            <h3 class="text-dark mb-0">Update doctor</h3>
+                            <h3 class="text-dark mb-0">${success_msg} </h3>
                         </form>
                         <ul class="nav navbar-nav flex-nowrap ml-auto">
                             <li class="nav-item dropdown d-sm-none no-arrow"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><i class="fas fa-search"></i></a>
@@ -71,7 +71,7 @@
                 </nav>
                 <form:form method="post" modelAttribute="doc">
                     <div class="container-fluid">
-                        <h3 class="text-dark mb-4">Update Doctor Profile</h3>
+                        <h3 class="text-dark mb-4">New Doctor Profile</h3>
                         <div class="row mb-3">
                             <div class="col-lg-4">
                                 <div class="card">
@@ -83,16 +83,16 @@
                                             <div class="form-row">
                                                 <div class="col">
                                                 
-                                                    <div class="form-group"><label ><strong>Doctor Id</strong><br></label><form:input path="doctorId" class="form-control" type="number" inputmode="numeric" minlength="3" maxlength="6" required="" autofocus="" placeholder="3-6 digits"  value="${doctor.doctorId}"/></div>
+                                                    <div class="form-group"><label ><strong>Doctor Id</strong><br></label><form:input path="doctorId" class="form-control" type="number" inputmode="numeric" minlength="3" maxlength="6" required="" autofocus="" placeholder="3-6 digits"  /></div>
                                                 </div>
                                                 <div class="col">
-                                                    <div class="form-group"><label for="phoneNo"><strong>Mobile Number</strong><br></label><form:input path ="doctorMobile" value="${doctor.doctorMobile}" class="form-control" type="number" name="phoneNo" inputmode="numeric" minlength="10" maxlength="10" required="" autofocus="" placeholder="mobile num" /></div>
+                                                    <div class="form-group"><label for="phoneNo"><strong>Mobile Number</strong><br></label><form:input path ="doctorMobile"  class="form-control" type="number" name="phoneNo" inputmode="numeric" minlength="10" maxlength="10" required="" autofocus="" placeholder="mobile num" /></div>
                                                 </div>
                                             </div>
                                     </div>
                                 </div>
                                 <br><br><br><br>
-                    
+                                
                             </div>
                             <div class="col-lg-8">
                                 <div class="row mb-3 d-none">
@@ -137,18 +137,18 @@
                                               <!--  <form id="f2"> -->
                                                     <div class="form-row">
                                                         <div class="col">
-                                                            <div class="form-group"><label for="first_name"><strong> Name</strong></label><form:input path="doctorName" value="${doctor.doctorName}" class="form-control" type="text" placeholder="Babu rao" style="margin: -7px;"/></div>
+                                                            <div class="form-group"><label for="first_name"><strong> Name</strong></label><form:input path="doctorName" class="form-control" type="text" placeholder="Babu rao" style="margin: -7px;"/></div>
                                                         </div>
                                                         <div class="col">
                                                             <div class="form-group">
-                                                                <div class="col"><label for="dob" style="height: 0px;"><strong>Date of Birth</strong></label><form:input path="doctorDOB" value="${doctor.doctorDOB}" class="form-control form-control-lg d-flex justify-content-center align-items-center align-content-center" type="date"
+                                                                <div class="col"><label for="dob" style="height: 0px;"><strong>Date of Birth</strong></label><form:input path="doctorDOB"  class="form-control form-control-lg d-flex justify-content-center align-items-center align-content-center" type="date"
                                                                         name="dob" style="font-size: 16px;margin: 0px;height: 38px;" required=""/></div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="form-row">
                                                         <div class="col">
-                                                            <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable"><label for="qualification">&nbsp;<strong>Qualification</strong></label><form:input path="doctorQualification" value="${doctor.doctorQualification}" class="form-control" type="text" placeholder="MBBS"  style="margin: -7px;"/></div>
+                                                            <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable"><label for="qualification">&nbsp;<strong>Qualification</strong></label><form:input path="doctorQualification" class="form-control" type="text" placeholder="MBBS"  style="margin: -7px;"/></div>
                                                         </div>
                                                         <div class="col">
                                                            
@@ -163,10 +163,10 @@
                                             </div>
     <!-- Address -->
                                             <div class="card-body">
-                                                    <div class="form-group"><label for="address"><strong>Address</strong></label><form:input path="doctorAddress" value="${doctor.doctorAddress}" class="form-control" type="text" /></div>
+                                                    <div class="form-group"><label for="address"><strong>Address</strong></label><form:input path="doctorAddress"  class="form-control" type="text" /></div>
                                                     <div class="form-row">
                                                         <div class="col">
-                                                            <div class="form-group"><label for="city"><strong>City</strong></label><form:input path="doctorCity" value="${doctor.doctorCity}" class="form-control" type="text" /></div>
+                                                            <div class="form-group"><label for="city"><strong>City</strong></label><form:input path="doctorCity"  class="form-control" type="text" /></div>
                                                         </div>
                                                         <div class="col">
                                                         

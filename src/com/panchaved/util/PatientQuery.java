@@ -36,6 +36,37 @@ public class PatientQuery {
 		}
 		return pstm;
 	}
+
+	
+	public static PreparedStatement updateQueryPatient() {
+		try {
+			String sql ="UPDATE `panchaved_data`.`patient` SET `patientName` = ?, `gender` = ?,"
+					+ " `phoneNo` = ?, `bloodGroup` = ?, `dob` = ?, `address` = ?, `district` = ?, `state` = ?, `remarks` = ? "
+					+ "WHERE (`patientId` = ?)";
+
+			pstm = con.prepareStatement(sql);
+			
+		}catch (SQLException e) {
+		
+			e.printStackTrace();
+		}
+		return pstm;
+	}
+	
+	public static ResultSet selectWQueryPatient(Integer id) {
+		
+		try {
+			
+			String sql ="select * from patient where patientId="+id+"";
+			pstm = con.prepareStatement(sql);
+			return pstm.executeQuery();
+			
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
 	
 
 }
