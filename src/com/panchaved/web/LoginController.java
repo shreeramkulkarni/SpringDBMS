@@ -20,11 +20,11 @@ public class LoginController {
 
 	@RequestMapping(method=RequestMethod.GET)
 	public String login(HttpServletRequest req) {
-		if(!AppSession.isLoggedIn(req)) {
+		//if(!AppSession.isLoggedIn(req)) {
 		System.out.println("login called!");
 		return "login.jsp";
-		}
-		return "success.jsp";
+		//}
+		//return "success.jsp";
 	}
 	@RequestMapping(method=RequestMethod.POST)
 	public String login(HttpServletRequest req,@RequestParam("username") String username,@RequestParam("password")String password,@RequestParam("radiob")String radio , Model model) {
@@ -37,6 +37,7 @@ public class LoginController {
 			session.setAttribute("pass", password);
 			model.addAttribute("username", username);
 			model.addAttribute("person", radio);
+			
 			
 		}else {
 			model.addAttribute("username", username+" NOT FOUND");

@@ -1,13 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" session="false" %>
+    pageEncoding="ISO-8859-1" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 
+<spring:url var="doctor" value="/admin/doctor"/>
+<spring:url var="login" value=""/>
+<c:if test="${sessionScope.user==null}">
+
+<c:redirect url="/"></c:redirect>
+</c:if>
+ 
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Dashboard - Panch-Karm Clinic</title>
+    <title> Dashboard - Panch-Karm Clinic</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
     <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
@@ -17,6 +26,7 @@
 </head>
 
 <body id="page-top">
+
     <div id="wrapper">
         <nav class="navbar navbar-dark flex-shrink-0 align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
             <div class="container-fluid d-flex flex-column p-0">
@@ -27,7 +37,7 @@
                 <ul class="nav navbar-nav text-light" id="accordionSidebar">
                     <li class="nav-item" role="presentation"></li>
                     
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="/SpringDBMS/admin/doctor"><i class="fas fa-window-maximize"></i><span>Doctor</span></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="${doctor}"><i class="fas fa-window-maximize"></i><span>Doctor</span></a></li>
                     <li class="nav-item"
                         role="presentation"><a class="nav-link" href="/SpringDBMS/admin/patient"><i class="fas fa-table"></i><span>Patient</span></a></li>
                     <li class="nav-item"
