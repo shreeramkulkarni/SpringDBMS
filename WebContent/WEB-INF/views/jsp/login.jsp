@@ -35,7 +35,7 @@
                                 <div class="p-5">
                                     <h4 class="text-dark mb-4">Welcome Back!</h4>
                                     <div class="table-responsive">
-                                    <form class="user" action="/SpringDBMS/${user}" method="post">
+                                    <form class="user"  method="post">
                                         <table class="table">
                                             <thead>
                                                 <tr>

@@ -22,11 +22,11 @@ public class PatientService {
 
 	public ArrayList<Patient> patients;
 	public PatientService() {
+
 		this.patients = new ArrayList<Patient>();
 	}
 	
 	public void registerPatient() {
-		
 		Connection con = DbConnect.Connect();
 		try {
 			Statement stmt = con.createStatement();
@@ -35,7 +35,7 @@ public class PatientService {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 	}
 	
 
