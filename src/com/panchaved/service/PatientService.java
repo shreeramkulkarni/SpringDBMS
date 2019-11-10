@@ -10,8 +10,10 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.panchaved.enitity.Doctor;
 import com.panchaved.enitity.Patient;
 import com.panchaved.util.DbConnect;
+import com.panchaved.util.DoctorQuery;
 import com.panchaved.util.PatientQuery;
 
 
@@ -91,6 +93,64 @@ public class PatientService {
 		}
 		 
 		return (ArrayList<Patient>) patients;
+	}
+
+	public Patient getSelectedPatient(Integer id) {
+		ResultSet rs = PatientQuery.selectWQueryPatient(id);
+		patients.clear();
+		Patient patient = null;
+		
+		try {
+			while(rs.next()) {
+				int patientId = rs.getInt(1);
+				String patientName = rs.getString("patientName");
+				String gender = rs.getString(3);
+				long phoneNo = rs.getLong(4);
+				String bloodGroup = rs.getString(5); 
+				java.util.Date dob = rs.getDate(6);
+				String address =rs.getString(7);
+				String district =rs.getString(8);
+				String state = rs.getString(9);
+				String remarks = rs.getString(10);
+				patient = new Patient(patientId, patientName, gender, phoneNo, bloodGroup, (java.sql.Date) dob, address, district, state,remarks);
+				patients.add(patient);
+				
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return patient;
+	}
+	
+	public boolean updatePatient(Patient pat) {
+		
+		
+		try {
+			
+			PreparedStatement pstm = PatientQuery.updateQueryPatient();
+			
+			pstm.setString(1, pat.getPatientName());
+			pstm.setString(2, pat.getGender());
+			pstm.setLong(3, pat.getPhoneNo());
+			pstm.setString(4, pat.getBloodGroup());
+			pstm.setDate(5, pat.getDob());
+			pstm.setString(6, pat.getAddress());
+			pstm.setString(7, pat.getDistrict());
+			pstm.setString(8, pat.getState());
+			pstm.setString(9, pat.getRemarks());
+			pstm.setInt(10, pat.getPatientId());
+			int count = pstm.executeUpdate();
+			if(count!=0) {
+				return true; 
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}  
+		return false;
+		
 	}
 
 	

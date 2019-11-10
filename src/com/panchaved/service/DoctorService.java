@@ -28,32 +28,31 @@ public class DoctorService {
 	}
 	
 	
-	public boolean insertDoctor(int doctorId, String doctorName, String doctorMobile, Date doctorDOB, String doctorQualification,
-			String doctorAddress, String doctorCity)
+	public boolean insertDoctor(Doctor doc)
 	{
 		try {
 			PreparedStatement pstm = DoctorQuery.insertQueryDoctor();
 			
-			pstm.setInt(1, doctorId);
-			pstm.setString(2, doctorName);
-			pstm.setString(3, doctorMobile);
-			pstm.setDate(4, (java.sql.Date) doctorDOB);
-			pstm.setString(5, doctorQualification);
-			pstm.setString(6, doctorAddress);
-			pstm.setString(7, doctorCity);
+			pstm.setInt(1, doc.getDoctorId());
+			pstm.setString(2, doc.getDoctorName());
+			pstm.setString(3, doc.getDoctorMobile());
+			pstm.setDate(4, doc.getDoctorDOB());
+			pstm.setString(5, doc.getDoctorQualification());
+			pstm.setString(6, doc.getDoctorAddress());
+			pstm.setString(7, doc.getDoctorCity());
 			
 			int count = pstm.executeUpdate();
 			if(count!=0) {
 				return true; 
-			}
+			}	
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}  
 		return false;
 	}
 	
-	public List getAllRecords(int page) {
+	public List getAllRecords(int page) { //Doctor's Service Mettod
 		int o = (page-1) * 20;
 		System.out.println(Integer.toString(o));
 		ResultSet rs = DoctorQuery.selectQueryDoctor(Integer.toString(o));

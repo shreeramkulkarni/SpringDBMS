@@ -43,7 +43,7 @@
                 <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
                     <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
                         <form class="form-inline d-none d-sm-inline-block mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                            <h3 class="text-dark mb-0">Update Patiennt</h3>
+                            <h3 class="text-dark mb-0"> ${success_msg} </h3>
                         </form>
                         <ul class="nav navbar-nav flex-nowrap ml-auto">
                             <li class="nav-item dropdown d-sm-none no-arrow"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><i class="fas fa-search"></i></a>
@@ -55,79 +55,8 @@
                                     </form>
                                 </div>
                             </li>
-                            <li class="nav-item dropdown no-arrow mx-1" role="presentation">
-                                <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"></a>
-                                    <div class="dropdown-menu dropdown-menu-right dropdown-list dropdown-menu-right animated--grow-in" role="menu">
-                                        <h6 class="dropdown-header">alerts center</h6>
-                                        <a class="d-flex align-items-center dropdown-item" href="#">
-                                            <div class="mr-3">
-                                                <div class="bg-primary icon-circle"><i class="fas fa-file-alt text-white"></i></div>
-                                            </div>
-                                            <div><span class="small text-gray-500">December 12, 2019</span>
-                                                <p>A new monthly report is ready to download!</p>
-                                            </div>
-                                        </a>
-                                        <a class="d-flex align-items-center dropdown-item" href="#">
-                                            <div class="mr-3">
-                                                <div class="bg-success icon-circle"><i class="fas fa-donate text-white"></i></div>
-                                            </div>
-                                            <div><span class="small text-gray-500">December 7, 2019</span>
-                                                <p>$290.29 has been deposited into your account!</p>
-                                            </div>
-                                        </a>
-                                        <a class="d-flex align-items-center dropdown-item" href="#">
-                                            <div class="mr-3">
-                                                <div class="bg-warning icon-circle"><i class="fas fa-exclamation-triangle text-white"></i></div>
-                                            </div>
-                                            <div><span class="small text-gray-500">December 2, 2019</span>
-                                                <p>Spending Alert: We've noticed unusually high spending for your account.</p>
-                                            </div>
-                                        </a><a class="text-center dropdown-item small text-gray-500" href="#">Show All Alerts</a></div>
-                                </div>
-                            </li>
-                            <li class="nav-item dropdown no-arrow mx-1" role="presentation">
-                                <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"></a>
-                                    <div class="dropdown-menu dropdown-menu-right dropdown-list dropdown-menu-right animated--grow-in" role="menu">
-                                        <h6 class="dropdown-header">alerts center</h6>
-                                        <a class="d-flex align-items-center dropdown-item" href="#">
-                                            <div class="dropdown-list-image mr-3"><img class="rounded-circle" src="assets/img/avatars/avatar4.jpeg">
-                                                <div class="bg-success status-indicator"></div>
-                                            </div>
-                                            <div class="font-weight-bold">
-                                                <div class="text-truncate"><span>Hi there! I am wondering if you can help me with a problem I've been having.</span></div>
-                                                <p class="small text-gray-500 mb-0">Emily Fowler - 58m</p>
-                                            </div>
-                                        </a>
-                                        <a class="d-flex align-items-center dropdown-item" href="#">
-                                            <div class="dropdown-list-image mr-3"><img class="rounded-circle" src="assets/img/avatars/avatar2.jpeg">
-                                                <div class="status-indicator"></div>
-                                            </div>
-                                            <div class="font-weight-bold">
-                                                <div class="text-truncate"><span>I have the photos that you ordered last month!</span></div>
-                                                <p class="small text-gray-500 mb-0">Jae Chun - 1d</p>
-                                            </div>
-                                        </a>
-                                        <a class="d-flex align-items-center dropdown-item" href="#">
-                                            <div class="dropdown-list-image mr-3"><img class="rounded-circle" src="assets/img/avatars/avatar3.jpeg">
-                                                <div class="bg-warning status-indicator"></div>
-                                            </div>
-                                            <div class="font-weight-bold">
-                                                <div class="text-truncate"><span>Last month's report looks great, I am very happy with the progress so far, keep up the good work!</span></div>
-                                                <p class="small text-gray-500 mb-0">Morgan Alvarez - 2d</p>
-                                            </div>
-                                        </a>
-                                        <a class="d-flex align-items-center dropdown-item" href="#">
-                                            <div class="dropdown-list-image mr-3"><img class="rounded-circle" src="assets/img/avatars/avatar5.jpeg">
-                                                <div class="bg-success status-indicator"></div>
-                                            </div>
-                                            <div class="font-weight-bold">
-                                                <div class="text-truncate"><span>Am I a good boy? The reason I ask is because someone told me that people say this to all dogs, even if they aren't good...</span></div>
-                                                <p class="small text-gray-500 mb-0">Chicken the Dog · 2w</p>
-                                            </div>
-                                        </a><a class="text-center dropdown-item small text-gray-500" href="#">Show All Alerts</a></div>
-                                </div>
-                                <div class="shadow dropdown-list dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown"></div>
-                            </li>
+                            
+                           
                             <li class="nav-item dropdown no-arrow" role="presentation">
                                 <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#" style="font-size: 19px;"><span class="d-none d-lg-inline mr-2 text-gray-600 small" style="font-size: 25px;">⇄</span></a>
                                     <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in"
@@ -140,7 +69,7 @@
                         </ul>
                     </div>
                 </nav>
-                <form action="/SpringDBMS/admin/patient/new" method="post" >
+                <form:form action="/SpringDBMS/admin/patient/update" method="post" modelAttribute="patient">
                     <div class="container-fluid">
                         <h3 class="text-dark mb-4">Update Patient Profile</h3>
                         <div class="row mb-3">
@@ -153,10 +82,10 @@
                                     <div class="card-body" style="margin: 0px;">
                                             <div class="form-row">
                                                 <div class="col">
-                                                    <div class="form-group"><label for="patientId"><strong>Patient Id</strong><br></label><input path = "patientId" class="form-control" type="tel" inputmode="numeric" minlength="3" maxlength="6" required="" autofocus="" placeholder="3-6 digits" name="patientId" /></div>
+                                                    <div class="form-group"><label for="patientId"><strong>Patient Id</strong><br></label><form:input value="${patient.patientId}" path = "patientId" class="form-control" type="tel" inputmode="numeric" minlength="3" maxlength="6" required="" autofocus="" placeholder="3-6 digits" name="patientId" /></div>
                                                 </div>
                                                 <div class="col">
-                                                    <div class="form-group"><label for="phoneNo"><strong>Mobile Number</strong><br></label><input path = "phoneNo" class="form-control" type="tel" name="phoneNo" inputmode="numeric" minlength="10" maxlength="10" required="" autofocus="" placeholder="mobile num" /></div>
+                                                    <div class="form-group"><label for="phoneNo"><strong>Mobile Number</strong><br></label><form:input value="${patient.phoneNo}" path = "phoneNo" class="form-control" type="tel" name="phoneNo" inputmode="numeric" minlength="10" maxlength="10" required="" autofocus="" placeholder="mobile num" /></div>
                                                 </div>
                                             </div>
                                     </div>
@@ -170,7 +99,7 @@
                                                 <div class="card-header py-3">
                                                     <p class="text-primary m-0 font-weight-bold">Remarks</p>
                                                 </div>
-                                                <div class="card-body text-left" style="height: 107px;"><textarea name="remarks" path="remarks" class="form-control-lg" style="height: 108px;width: 315px;" /></textarea></div>
+                                                <div class="card-body text-left" style="height: 107px;"><form:textarea value="${patient.remarks}" path="remarks" class="form-control-lg" style="height: 108px;width: 315px;"></form:textarea></div>
                                             </div>
                                         </div>
                                     </div>
@@ -219,21 +148,21 @@
                                               <!--  <form id="f2"> -->
                                                     <div class="form-row">
                                                         <div class="col">
-                                                            <div class="form-group"><label for="first_name"><strong>Patient Name</strong></label><input path = "patientName" class="form-control" type="text" placeholder="Babu rao" name="patientName" style="margin: -7px;"/></div>
+                                                            <div class="form-group"><label for="first_name"><strong>Patient Name</strong></label><form:input value="${patient.patientName}" path = "patientName" class="form-control" type="text" placeholder="Babu rao" name="patientName" style="margin: -7px;"/></div>
                                                         </div>
                                                         <div class="col">
                                                             <div class="form-group">
-                                                                <div class="col"><label for="dob" style="height: 0px;"><strong>Date of Birth</strong></label><input path = "dob" class="form-control form-control-lg d-flex justify-content-center align-items-center align-content-center" type="date"
+                                                                <div class="col"><label for="dob" style="height: 0px;"><strong>Date of Birth</strong></label><form:input value="${patient.dob}" path="dob" class="form-control form-control-lg d-flex justify-content-center align-items-center align-content-center" type="date"
                                                                         name="dob" style="font-size: 16px;margin: 0px;height: 38px;" required=""/></div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="form-row">
                                                         <div class="col">
-                                                            <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable"><label for="bloodGroup">&nbsp;Blood Group<select path="bloodGroup" name = "bloodgroup"class="form-control form-control form-control-sm custom-select custom-select-sm"><option value="null" selected="">Select</option><option value="O-" selected="">O-</option><option value="O+">O+</option><option value="A-">A-</option><option value="100">A+</option><option value="B-">B-</option><option value="B+">B+</option><option value="AB-">AB-</option><option value="AB+">AB+</option></select>&nbsp;</label></div>
+                                                            <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable"><label for="bloodGroup">&nbsp;Blood Group<form:select path="bloodGroup" class="form-control form-control form-control-sm custom-select custom-select-sm"><form:option value="${patient.bloodGroup}" selected="${patient.bloodGroup}"></form:option><form:option value="O-" selected="">O-</form:option><form:option value="O+">O+</form:option><form:option value="A-">A-</form:option><form:option value="A+">A+</form:option><form:option value="B-">B-</form:option><form:option value="B+">B+</form:option><form:option value="AB-">AB-</form:option><form:option value="AB+">AB+</form:option></form:select>&nbsp;</label></div>
                                                         </div>
                                                         <div class="col">
-                                                            <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable"><label style="margin: 2px;" for="gender">Gender&nbsp;<select path="gender" name = "gender" class="form-control form-control form-control-sm custom-select custom-select-sm"><option value="Male" selected="">Male</option><option value="Female">Female</option><option value="Other">Rather not say</option></select>&nbsp;</label></div>
+                                                            <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable"><label style="margin: 2px;" for="gender">Gender&nbsp;<form:select path="gender" name = "gender" class="form-control form-control form-control-sm custom-select custom-select-sm">  <form:option value="${patient.gender}" selected=""/><form:option value="Male">Male</form:option><form:option value="Female">Female</form:option><form:option value="Other">Rather not say</form:option></form:select>&nbsp;</label></div>
                                                         </div>
                                                     </div>
                                             </div>
@@ -245,13 +174,13 @@
                                             </div>
     <!-- Address -->
                                             <div class="card-body">
-                                                    <div class="form-group"><label for="address"><strong>Address</strong></label><input path = "address" class="form-control" type="text" name="address"/></div>
+                                                    <div class="form-group"><label for="address"><strong>Address</strong></label><form:input value="${patient.address}" path="address" class="form-control" type="text" name="address"/></div>
                                                     <div class="form-row">
                                                         <div class="col">
-                                                            <div class="form-group"><label for="district"><strong>District</strong></label><input path = "district" class="form-control" type="text" name="district"/></div>
+                                                            <div class="form-group"><label for="district"><strong>District</strong></label><form:input value="${patient.district}" path="district" class="form-control" type="text" name="district"/></div>
                                                         </div>
                                                         <div class="col">
-                                                            <div class="form-group"><label for="state"><strong>State</strong></label><input path = "state" class="form-control" type="text" name="state"/></div>
+                                                            <div class="form-group"><label for="state"><strong>State</strong></label><form:input value="${patient.state}" path="state" class="form-control" type="text" name="state"/></div>
                                                         </div>
                                                     </div>
                                                     <div class="form-group"><button class="btn btn-primary" type="submit">Save</button></div>
@@ -263,7 +192,7 @@
                             </div>
                         </div>
                     </div>
-                </form>
+                </form:form>
                 
             </div>
             <footer class="bg-white sticky-footer">
