@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1" session="false"%>
+    pageEncoding="ISO-8859-1" session="false" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 
 <!DOCTYPE html>
 <html>
@@ -9,13 +11,12 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 <title>Dashboard - Panch-Karm Clinic</title>
-<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
-<link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
-<link rel="stylesheet" href="assets/css/MUSA_panel-table-1.css">
-<link rel="stylesheet" href="assets/css/MUSA_panel-table.css">
-<link rel="stylesheet" href="assets/css/Navigation-Clean.css">
+<link rel="stylesheet" href="<c:url value="/assets/bootstrap/css/bootstrap.min.css"/>">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+    <link rel="stylesheet" href="<c:url value="/assets/fonts/fontawesome-all.min.css"/>">
+    <link rel="stylesheet" href="<c:url value="/assets/css/MUSA_panel-table-1.css"/>">
+    <link rel="stylesheet" href="<c:url value="/assets/css/MUSA_panel-table.css"/>">
+    <link rel="stylesheet" href="<c:url value="/assets/css/Navigation-Clean.css"/>">
 </head>
 
 <body id="page-top">
@@ -29,7 +30,7 @@
 					<div class="sidebar-brand-text mx-3"
 						style="margin: 0px; padding: 0px; background-size: auto; background-position: left;">
 						<span style="padding: 0px; margin-right: 0px;">Panch-Karm
-							Clinic</span>
+							Clinic </span>
 					</div>
 				</a>
 				<hr class="sidebar-divider my-0">
@@ -40,11 +41,8 @@
 						href="/SpringDBMS/doctor"><i class="fas fa-window-maximize"></i><span>Manage
 								Patient</span></a></li>
 					<li class="nav-item" role="presentation"><a class="nav-link"
-						href="#"><i class="fas fa-window-maximize"></i><span>Manage
+						href="/SpringDBMS/doctor/update?doctorId=100"><i class="fas fa-window-maximize"></i><span>Manage
 								Me</span></a></li>
-					<li class="nav-item" role="presentation"><a class="nav-link"
-						href="#"><i class="fas fa-window-maximize"></i><span>Questions</span></a></li>
-
 					<li class="nav-item" role="presentation"></li>
 					<li class="nav-item" role="presentation"></li>
 				</ul>
@@ -63,7 +61,7 @@
 							id="sidebarToggleTop" type="button">
 							<i class="fas fa-bars"></i>
 						</button>
-						<h3 class="text-dark mb-0">Dashboard ${sessionScope.user}</h3>
+						<h3 class="text-dark mb-0">Dashboard</h3>
 						<%-- <b> ${user} </b> --%>
 						<ul class="nav navbar-nav flex-nowrap ml-auto">
 							<li class="nav-item dropdown d-sm-none no-arrow"><a
@@ -123,6 +121,7 @@
 									class="form-control" type="tel"
 									inputmode="numeric" minlength="0" maxlength="6" required=""
 									autofocus="" placeholder="3-6 digits" name="patId" />
+								<div id = "warn" style="color:red"></div>	
 								<div class="form-group mt-4">
 									<button id="proceed" class="btn btn-primary" type="submit">Proceed</button>
 								</div>
@@ -153,7 +152,7 @@
 															<label for="patientId"><strong>Patient
 																	Id</strong><br></label><input path="patientId" class="form-control"
 																type="tel" inputmode="numeric" minlength="0"
-																maxlength="6" required="" autofocus=""
+																maxlength="6" required="" autofocus="" 
 																placeholder="3-6 digits" name="patientId" />
 														</div>
 													</div>
@@ -262,14 +261,14 @@
 															<div class="col">
 																<div id="dataTable_length" class="dataTables_length"
 																	aria-controls="dataTable">
-																	<label for="bloodGroup">&nbsp;Blood Group<select
-																		path="bloodGroup" name="bloodgroup"
-																		class="form-control form-control form-control-sm custom-select custom-select-sm"><option
-																				value="null" selected="">Select</option>
-																			<option value="O-" selected="">O-</option>
+																	<label for="bloodGroup">&nbsp;Blood Group
+																	<select path="bloodGroup" name="bloodgroup"
+																		class="form-control form-control form-control-sm custom-select custom-select-sm">
+																		<option value="null" >Select</option>
+																			<option value="O-">O-</option>
 																			<option value="O+">O+</option>
 																			<option value="A-">A-</option>
-																			<option value="100">A+</option>
+																			<option value="A+">A+</option>
 																			<option value="B-">B-</option>
 																			<option value="B+">B+</option>
 																			<option value="AB-">AB-</option>
@@ -282,8 +281,8 @@
 																	aria-controls="dataTable">
 																	<label style="margin: 2px;" for="gender">Gender&nbsp;<select
 																		path="gender" name="gender"
-																		class="form-control form-control form-control-sm custom-select custom-select-sm"><option
-																				value="Male" selected="">Male</option>
+																		class="form-control form-control form-control-sm custom-select custom-select-sm">
+																			<option value="Male">Male</option>
 																			<option value="Female">Female</option>
 																			<option value="Other">Rather not say</option></select>&nbsp;
 																	</label>
@@ -379,15 +378,15 @@
 		</a>
 	</div>
 
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/search.js"></script>
-	<script src="assets/js/temp.js"></script>
-	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
-	<script src="assets/js/chart.min.js"></script>
-	<script src="assets/js/bs-charts.js"></script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
-	<script src="assets/js/theme.js"></script>
+	<script src="<c:url value="/assets/js/jquery.min.js"/>"></script>
+        <script src="<c:url value="/assets/bootstrap/js/bootstrap.min.js"/>"></script>
+        <script src="<c:url value="/assets/js/chart.min.js"/>"></script>
+        <script src="<c:url value="/assets/js/bs-charts.js"/>"></script>
+        <script src="<c:url value="/assets/js/theme.js"/>"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+        <script src="<c:url value="/assets/js/search.js"/>"></script>
+        <script src="<c:url value="/assets/js/temp.js"/>"></script>
+
 </body>
 
 </html>

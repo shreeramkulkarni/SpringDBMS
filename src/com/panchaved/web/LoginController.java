@@ -36,14 +36,13 @@ public class LoginController {
 			session.setAttribute("user", username);
 			session.setAttribute("pass", password);
 			model.addAttribute("username", username);
-			model.addAttribute("person", radio);
+			
+			return "redirect:/"+radio;
 			
 		}else {
 			model.addAttribute("username", username+" NOT FOUND");
 			return "login.jsp";
 		}
-		
-		return "redirect:/admin";
 	}
 	
 	@RequestMapping("/logout")

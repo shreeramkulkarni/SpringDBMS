@@ -5,6 +5,8 @@
 <title>Demo</title>
 </head>
 <body>
+
+	${hellomsg}
 	<a href="http://jquery.com/">jQuery</a>
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
