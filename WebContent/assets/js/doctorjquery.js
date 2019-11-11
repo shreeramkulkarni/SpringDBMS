@@ -119,8 +119,8 @@ $(function()
 					});
 			$("#casesubmit").click(
 					function(){
-						var report = $("textarea#report").val();
-						console.log(report);
+						var report = $("#caseform").serializeArray();
+						console.log(report);  
 						$.ajax(
 								{
 									url:"http://localhost:8080/SpringDBMS/doctor/casetaking",
