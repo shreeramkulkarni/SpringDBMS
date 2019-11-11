@@ -158,4 +158,11 @@ public class AdminController {
 		return "newDoctor.jsp";
 	}
 	
+	@RequestMapping(value = "/bill" , method = RequestMethod.GET)
+	public String showBill( Model model ) {
+			System.out.println("Showing bill!");
+			
+		return "adminBill.jsp";
+	}
+	
 }
