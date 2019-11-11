@@ -1,6 +1,8 @@
 package com.panchaved.web;
 
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -53,5 +55,12 @@ public class DoctorController {
 			dService.updateDoc(doc);
 			
 		return "updateDoctor.jsp";
+	}
+	
+	@RequestMapping(value="/casetaking",method = RequestMethod.GET)
+	public @ResponseBody void takeCase(HttpServletRequest req)
+	{
+		String data = req.getParameter("report");
+		System.out.println("Data = "+data);
 	}
 }	

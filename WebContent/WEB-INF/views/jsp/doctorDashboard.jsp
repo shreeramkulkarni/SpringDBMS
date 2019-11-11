@@ -363,10 +363,12 @@
                             <div class="form-group"><label>O/E:</label><input class="form-control" type="text" id="field5"></div>
                             <div class="form-group"><label>CNS-RS-NAD P/A:</label><input class="form-control" type="text" id="field6"></div>
                             <div class="form-group"><label>INVESTIGATIONS:</label><input class="form-control" type="text" id="field7"></div>
-                        </form>
+                    </form>    
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">REPORT:</h4><textarea id="report" style="width: 891px;height: 215px;"></textarea></div><button class="btn btn-primary" type="button">Submit</button><button id = "reset" class="btn btn-primary  mt-4" type="button">Reset</button></div>
+                                <h4 class="card-title">REPORT:</h4><textarea id="report" style="width: 891px;height: 215px;"></textarea></div><button id = "casesubmit" class="btn btn-primary" type="submit">Submit</button><button id = "reset" class="btn btn-primary  mt-4" type="button">Reset</button></div>
+                    
+                    
                     </div>
                 </div>
             </div>							
