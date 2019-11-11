@@ -352,15 +352,25 @@
 						</div>
 					</div>
 					<div name="casetaking">
-						<form action="">
-							<div class = "row mb-4">
-								<strong> Casetaking </strong>
-							</div>
-							<textarea style="height:100px; width:400px"></textarea>
-							
-							<div class="form-group d-inline mt-4">
-							<a href="#"><button id="reset" class="btn btn-primary" type="submit">Reset</button></a>
-						</div>
+						<div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">CASE-WORK</h4>
+                        <form>
+                            <div class="form-group"><label>Patient ID:</label><input class="form-control" type="text" id="field1"></div>
+                            <div class="form-group"><label>C/O:</label><input class="form-control" type="text" id="field2"></div>
+                            <div class="form-group"><label>H/O:</label><input class="form-control" type="text" id="field3"></div>
+                            <div class="form-group"><label>Physical Findings:</label><input class="form-control" type="text" id="field4"></div>
+                            <div class="form-group"><label>O/E:</label><input class="form-control" type="text" id="field5"></div>
+                            <div class="form-group"><label>CNS-RS-NAD P/A:</label><input class="form-control" type="text" id="field6"></div>
+                            <div class="form-group"><label>INVESTIGATIONS:</label><input class="form-control" type="text" id="field7"></div>
+                        </form>
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">REPORT:</h4><textarea id="report" style="width: 891px;height: 215px;"></textarea></div><button class="btn btn-primary" type="button">Submit</button><button id = "reset" class="btn btn-primary  mt-4" type="button">Reset</button></div>
+                    </div>
+                </div>
+            </div>							
+					</div>
 						</form>
 					</div>
 				</div>
@@ -385,7 +395,7 @@
         <script src="<c:url value="/assets/js/theme.js"/>"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
         <script src="<c:url value="/assets/js/search.js"/>"></script>
-        <script src="<c:url value="/assets/js/temp.js"/>"></script>
+        <script src="<c:url value="/assets/js/doctorjquery.js"/>"></script>
 
 </body>
 
