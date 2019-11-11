@@ -41,7 +41,7 @@
                     <li class="nav-item"
                         role="presentation"><a class="nav-link" href="/SpringDBMS/admin/patient"><i class="fas fa-table"></i><span>Patient</span></a></li>
                     <li class="nav-item"
-                        role="presentation"><a class="nav-link" href="/SpringDBMS/admin/ajax"><i class="fas fa-table"></i><span>ajax</span></a></li>
+                        role="presentation"><a class="nav-link" href="/SpringDBMS/admin/bill"><i class="fas fa-table"></i><span>Billing</span></a></li>
                     
                     <li class="nav-item" role="presentation"></li>
                     <li class="nav-item" role="presentation"></li>
@@ -53,7 +53,7 @@
             <div id="content">
                 <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
                     <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
-                        <h3 class="text-dark mb-0">Dashboard ${sessionScope.user} </h3>
+                        <h3 class="text-dark mb-0">Dashboard ${user} </h3>
                         <%-- <b> ${user} </b> --%>
                         <ul class="nav navbar-nav flex-nowrap ml-auto">
                             <li class="nav-item dropdown d-sm-none no-arrow"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><i class="fas fa-search"></i></a>

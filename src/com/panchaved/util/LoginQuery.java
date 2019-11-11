@@ -15,12 +15,12 @@ public class LoginQuery {
 	static ResultSet rs;
 
 
-	public static boolean selectQueryLogin(String username,String password) {
+	public static boolean selectQueryLogin(long userID,String password) {
 
 		try {
-			String sql ="select * from adminlogin where usernameAdmin=? and passwordAdmin=?";
+			String sql ="select * from login where userID=? and password=?";
 			pstm = con.prepareStatement(sql);
-			pstm.setString(1, username);
+			pstm.setLong(1, userID);
 			pstm.setString(2, password);
 			rs = pstm.executeQuery();
 			if(rs.next()) {

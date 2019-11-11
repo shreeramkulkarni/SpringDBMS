@@ -3,6 +3,12 @@
     pageEncoding="ISO-8859-1" session="false" %>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     
+    
+<%-- <c:if test="${sessionScope.user==null}">
+
+<c:redirect url="/"></c:redirect>
+</c:if>
+ --%>    
 <!DOCTYPE html>
 <html>
 
@@ -21,7 +27,7 @@
 </head>
 
 <body class="bg-gradient-primary">
-	${username}
+	
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-9 col-lg-12 col-xl-10" style="height: 560px;margin: 81px;">
@@ -45,10 +51,7 @@
                                                     <th>
                                                         <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-3" name="radiob" value="doctor" ><label class="form-check-label" for="formCheck-3">Doctor</label></div>
                                                     </th>
-                                                    <th>
-                                                        <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-4" name="radiob" ><label class="form-check-label" for="formCheck-4">Biller</label></div>
-                                                    </th>
-                                                </tr>
+                                                                                                    </tr>
                                             </thead>
                                             <tbody>
                                                 <tr></tr>
@@ -58,11 +61,11 @@
                                     </div>
                                     <div class="text-center"></div>
                                     
-                                        <div class="form-group"><input class="form-control form-control-user" type="text" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Username" name="username"></div>
+                                        <div class="form-group"><input class="form-control form-control-user" type="tel" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="UserID" name="userID"></div>
                                         <div class="form-group"><input class="form-control form-control-user" type="password" id="exampleInputPassword" placeholder="Password" name="password"></div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
-                                                <div class="form-check"><input class="form-check-input custom-control-input" type="checkbox" id="formCheck-1"><label class="form-check-label custom-control-label" for="formCheck-1">Remember Me</label></div>
+                                                <div class="form-check">${fail_msg}</div>
                                             </div>
                                         </div><button class="btn btn-primary btn-block text-white btn-user" type="submit">Login</button>
                                         <hr>

@@ -33,13 +33,12 @@ public class DoctorService {
 		try {
 			PreparedStatement pstm = DoctorQuery.insertQueryDoctor();
 			
-			pstm.setInt(1, doc.getDoctorId());
+			pstm.setLong(1, doc.getDoctorID());
 			pstm.setString(2, doc.getDoctorName());
-			pstm.setString(3, doc.getDoctorMobile());
-			pstm.setDate(4, doc.getDoctorDOB());
-			pstm.setString(5, doc.getDoctorQualification());
-			pstm.setString(6, doc.getDoctorAddress());
-			pstm.setString(7, doc.getDoctorCity());
+			pstm.setDate(3, doc.getDoctorDOB());
+			pstm.setString(4, doc.getDoctorQualification());
+			pstm.setString(5, doc.getDoctorAddress());
+			pstm.setString(6, doc.getDoctorCity());
 			
 			int count = pstm.executeUpdate();
 			if(count!=0) {
@@ -61,14 +60,13 @@ public class DoctorService {
 		try {
 			while(rs.next()) {
 				
-				int doctorId = rs.getInt(1);
+				long doctorId = rs.getLong(1);
 				String doctorName = rs.getString(2);
-				String doctorMobile = rs.getString(3);
-				java.util.Date doctorDOB = rs.getDate(4);
-				String  doctorQualification = rs.getString(5); 
-				String doctorAddress =rs.getString(6);
-				String doctorCity =rs.getString(7);
-				Doctor doctor = new Doctor(doctorId, doctorName, doctorMobile, doctorDOB, doctorQualification,
+				java.util.Date doctorDOB = rs.getDate(3);
+				String  doctorQualification = rs.getString(4); 
+				String doctorAddress =rs.getString(5);
+				String doctorCity =rs.getString(6);
+				Doctor doctor = new Doctor(doctorId, doctorName, doctorDOB, doctorQualification,
 						doctorAddress, doctorCity);
 				doctors.add(doctor);
 				
@@ -90,12 +88,11 @@ public class DoctorService {
 			PreparedStatement pstm = DoctorQuery.updateQueryDoctor();
 			
 			pstm.setString(1, doc.getDoctorName());
-			pstm.setString(2, doc.getDoctorMobile());
-			pstm.setDate(3, doc.getDoctorDOB());
-			pstm.setString(4, doc.getDoctorQualification());
-			pstm.setString(5, doc.getDoctorAddress());
-			pstm.setString(6, doc.getDoctorCity());
-			pstm.setInt(7, doc.getDoctorId());
+			pstm.setDate(2, doc.getDoctorDOB());
+			pstm.setString(3, doc.getDoctorQualification());
+			pstm.setString(4, doc.getDoctorAddress());
+			pstm.setString(5, doc.getDoctorCity());
+			pstm.setLong(6, doc.getDoctorID());
 			int count = pstm.executeUpdate();
 			if(count!=0) {
 				return true; 
@@ -109,7 +106,7 @@ public class DoctorService {
 	}
 
 
-	public Doctor getSelectedDoctor(Integer id) {
+	public Doctor getSelectedDoctor(long id) {
 		// TODO Auto-generated method stub
 		ResultSet rs = DoctorQuery.selectWQueryDoctor(id);
 		doctors.clear();
@@ -118,14 +115,13 @@ public class DoctorService {
 		try {
 			while(rs.next()) {
 				
-				int doctorId = rs.getInt(1);
+				long doctorID = rs.getLong(1);
 				String doctorName = rs.getString(2);
-				String doctorMobile = rs.getString(3);
-				java.util.Date doctorDOB = rs.getDate(4);
-				String  doctorQualification = rs.getString(5); 
-				String doctorAddress =rs.getString(6);
-				String doctorCity =rs.getString(7);
-				doctor = new Doctor(doctorId, doctorName, doctorMobile, doctorDOB, doctorQualification,
+				java.util.Date doctorDOB = rs.getDate(3);
+				String  doctorQualification = rs.getString(4); 
+				String doctorAddress =rs.getString(5);
+				String doctorCity =rs.getString(6);
+				doctor = new Doctor(doctorID, doctorName, doctorDOB, doctorQualification,
 						doctorAddress, doctorCity);
 			}
 		}

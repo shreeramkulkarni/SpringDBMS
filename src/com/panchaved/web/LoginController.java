@@ -27,21 +27,20 @@ public class LoginController {
 		//return "success.jsp";
 	}
 	@RequestMapping(method=RequestMethod.POST)
-	public String login(HttpServletRequest req,@RequestParam("username") String username,@RequestParam("password")String password,@RequestParam("radiob")String radio , Model model) {
-//		RequestDispatcher rd = req.getRequestDispatcher("WEB-INF/views/html");
+	public String login(HttpServletRequest req,@RequestParam("userID") long userID,@RequestParam("password")String password,@RequestParam("radiob")String radio , Model model) {
 		
-		if(LoginQuery.selectQueryLogin(username,password)) {
+		if(LoginQuery.selectQueryLogin(userID,password)) {
 			
 			HttpSession session = req.getSession();
-			session.setAttribute("user", username);
+			session.setAttribute("user", userID);
 			session.setAttribute("pass", password);
-			model.addAttribute("username", username);
-			
+			model.addAttribute("userID", userID);
+			System.out.println("ok!");
 			return "redirect:/"+radio;
 			
 			
 		}else {
-			model.addAttribute("username", username+" NOT FOUND");
+			model.addAttribute("fail_msg", "INVALID CREDENTIALS");
 			return "login.jsp";
 		}
 	}

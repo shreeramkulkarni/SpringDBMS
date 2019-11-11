@@ -6,9 +6,8 @@ import java.util.Date;
 public class Doctor {
 
 	
-	private int doctorId;
+	private  long doctorID;
 	private String doctorName;
-	private String doctorMobile;
 	private java.sql.Date doctorDOB;
 	private String doctorQualification;
 	private String doctorAddress;
@@ -16,12 +15,11 @@ public class Doctor {
 	
 	public Doctor() {}
 	
-	public Doctor(int doctorId,String doctorName, String doctorMobile, Date doctorDOB, String doctorQualification,
+	public Doctor(long doctorID,String doctorName, Date doctorDOB, String doctorQualification,
 			String doctorAddress, String doctorCity) {
 		super();
-		this.doctorId = doctorId;
+		this.doctorID = doctorID;
 		this.doctorName = doctorName;
-		this.doctorMobile = doctorMobile;
 		this.doctorDOB = (java.sql.Date) doctorDOB;
 		this.doctorQualification = doctorQualification;
 		this.doctorAddress = doctorAddress;
@@ -29,13 +27,13 @@ public class Doctor {
 	}
 	
 	
-	public int getDoctorId() {
-		return doctorId;
+	public long getDoctorID() {
+		return doctorID;
 	}
 
 
-	public void setDoctorId(int doctorId) {
-		this.doctorId = doctorId;
+	public void setDoctorID(long doctorID) {
+		this.doctorID = doctorID;
 	}
 
 
@@ -44,12 +42,6 @@ public class Doctor {
 	}
 	public void setDoctorName(String doctorName) {
 		this.doctorName = doctorName;
-	}
-	public String getDoctorMobile() {
-		return doctorMobile;
-	}
-	public void setDoctorMobile(String doctorMobile) {
-		this.doctorMobile = doctorMobile;
 	}
 	public java.sql.Date getDoctorDOB() {
 		return doctorDOB;
@@ -78,7 +70,7 @@ public class Doctor {
 	
 	@Override
 	public String toString() {
-		return "Doctor [doctorId=" + doctorId + ", doctorName=" + doctorName + ", doctorMobile=" + doctorMobile
+		return "Doctor [doctorID=" + doctorID + ", doctorName=" + doctorName
 				+ ", doctorDOB=" + doctorDOB + ", doctorQualification=" + doctorQualification + ", doctorAddress="
 				+ doctorAddress + ", doctorCity=" + doctorCity + "]";
 	}

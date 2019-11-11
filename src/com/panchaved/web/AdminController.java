@@ -27,17 +27,17 @@ import com.panchaved.util.AppSession;
 @RequestMapping("/admin")
 public class AdminController {
 
-	
+
 	@Autowired
 	PatientService pService;
 	@Autowired DoctorService dService;
-	
-	
+
+
 	AppSession session;
 
 	@RequestMapping(method = RequestMethod.GET)
-	public String dashboard(HttpSession s) {
-		System.out.println(s.getAttribute("user"));
+	public String dashboard() {
+		//		System.out.println(s.getAttribute("user"));
 		//HttpSession session = req.getSession(false);
 		//System.out.println("session var:"+session.getAttribute("user"));
 		return "adminDashboard.jsp";
@@ -46,7 +46,7 @@ public class AdminController {
 	@RequestMapping(value="/patient",method = RequestMethod.GET)
 	public String patient(Model model) {
 		showPatients(model, "1");
-			return "table.jsp";
+		return "table.jsp";
 	}
 	@RequestMapping(value="/ajaxPatient", method = RequestMethod.GET)
 	public @ResponseBody JsonArray showPatients(Model model,@RequestParam("page") String p) {
@@ -59,11 +59,11 @@ public class AdminController {
 		return json;
 	}
 
-//	@RequestMapping(value="/ajax", method = RequestMethod.GET)
-//	public String ajaxTest(Model model ) {
-//		return "ajaxTest.jsp";
-//		//		model.addAttribute("patient", pService.getAllRecords());
-//	}
+	//	@RequestMapping(value="/ajax", method = RequestMethod.GET)
+	//	public String ajaxTest(Model model ) {
+	//		return "ajaxTest.jsp";
+	//		//		model.addAttribute("patient", pService.getAllRecords());
+	//	}
 	@RequestMapping(value="/patient/new", method = RequestMethod.GET)
 	public String showNewPatientForm(Model model, HttpServletRequest req) {
 		System.out.println("Get req");
@@ -82,32 +82,32 @@ public class AdminController {
 		else {
 			model.addAttribute("success_msg", "Sorry Could Not Add Patient Please Retry");
 		}
-		
+
 		return "newpatient.jsp";
 	}
-	
+
 	@RequestMapping(value="/patient/update", method = RequestMethod.GET)
 	public String showUpdatePatientForm(Model model,@RequestParam("patientId") Integer id) {
 		System.out.println("inside update patient method : "+id);
-			System.out.println("Done");
-			model.addAttribute("patient",pService.getSelectedPatient(id));
-			System.out.println(pService.getSelectedPatient(id).getRemarks());
+		System.out.println("Done");
+		model.addAttribute("patient",pService.getSelectedPatient(id));
+		System.out.println(pService.getSelectedPatient(id).getRemarks());
 		return "updatePatient.jsp";
 	}
-	
+
 	@RequestMapping(value="/patient/update",method = RequestMethod.POST)
 	public String updatePatient(Model model,@ModelAttribute("patient") Patient patient) {
-			System.out.println("upadating doc!");
-			
-			if(pService.updatePatient(patient)) {
-				model.addAttribute("success_msg","Patient updated with Id: +"+patient.getPatientId());
-			}else {
-				model.addAttribute("success_msg","Sorry couldnt Update patient! Please Retry");
-			}
-		
-			return "updatePatient.jsp";
+		System.out.println("upadating doc!");
+
+		if(pService.updatePatient(patient)) {
+			model.addAttribute("success_msg","Patient updated with Id: "+patient.getPatientId());
+		}else {
+			model.addAttribute("success_msg","Sorry couldnt Update patient! Please Retry");
+		}
+
+		return "updatePatient.jsp";
 	}
-	
+
 	@RequestMapping(value="/doctor")
 	public String doctor(Model model) {
 		showDoctors(model, "1"); 
@@ -121,48 +121,52 @@ public class AdminController {
 		Gson gson = new Gson();
 		JsonElement element = gson.toJsonTree(dService.getAllRecords(page), new TypeToken<List<Doctor>>() {}.getType());
 		JsonArray json = element.getAsJsonArray();
-		
+
 		model.addAttribute("doctor", dService.getAllRecords(page));
 		return json;
 	}
-	
+
 	@RequestMapping(value="/doctor/update", method = RequestMethod.GET)
-	public String showUpdateForm(Model model,@RequestParam("doctorId") Integer id) {
-			
-			model.addAttribute("doctor",dService.getSelectedDoctor(id));
-			model.addAttribute("doc",new Doctor());
+	public String showUpdateForm(Model model,@RequestParam("doctorID") long id) {
+
+		model.addAttribute("doctor",dService.getSelectedDoctor(id));
+		model.addAttribute("doc",new Doctor());
 		return "updateDoctor.jsp";
 	}
-	
+
 	@RequestMapping(value="/doctor/update",method = RequestMethod.POST)
 	public String updateDoctor(Model model,@ModelAttribute("doc") Doctor doc) {
-			System.out.println("upadating doc!");
-			dService.updateDoc(doc);
+		System.out.println("upadating doc!");
+		if(dService.updateDoc(doc)) {
+			model.addAttribute("success_msg","Doctor updated with Id: "+doc.getDoctorID());
+		}else {
+			model.addAttribute("success_msg","Sorry couldnt Update doctor! Please Retry");
+		}
 		return "updateDoctor.jsp";
 	}
-	
+
 	@RequestMapping(value="/doctor/new",method = RequestMethod.GET)
 	public String showNewDoctorForm(Model model) {
 		model.addAttribute("doc",new Doctor());
 		return "newDoctor.jsp";
 	}
-	
+
 	@RequestMapping(value = "/doctor/new" , method = RequestMethod.POST)
 	public String addDoctor(Model model, @ModelAttribute("doc") Doctor doc) {
-			System.out.println("adding doc!");
-			if(dService.insertDoctor(doc)) {
-				model.addAttribute("success_msg", "New Doctor added successfully with ID:"+doc.getDoctorId());
-			}else {
-				model.addAttribute("success_msg", "Sorry Could Not Add Patient Please Retry ");
-			}
+		System.out.println("adding doc!");
+		if(dService.insertDoctor(doc)) {
+			model.addAttribute("success_msg", "New Doctor added successfully with ID:"+doc.getDoctorID());
+		}else {
+			model.addAttribute("success_msg", "Sorry Could Not Add Patient Please Retry ");
+		}
 		return "newDoctor.jsp";
 	}
-	
+
 	@RequestMapping(value = "/bill" , method = RequestMethod.GET)
 	public String showBill( Model model ) {
-			System.out.println("Showing bill!");
-			
+		System.out.println("Showing bill!");
+
 		return "adminBill.jsp";
 	}
-	
+
 }

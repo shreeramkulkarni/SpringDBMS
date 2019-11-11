@@ -31,7 +31,7 @@ public class DoctorQuery {
 	
 	public static PreparedStatement insertQueryDoctor() {
 		try {
-			String sql ="insert into doctor values(?,?,?,?,?,?,?)";
+			String sql ="insert into doctor values(?,?,?,?,?,?)";
 			pstm = con.prepareStatement(sql);
 			
 		}catch (SQLException e) {
@@ -43,7 +43,7 @@ public class DoctorQuery {
 	
 	public static PreparedStatement updateQueryDoctor() {
 		try {
-			String sql ="UPDATE doctor SET  doctorName = ?, doctorMobile = ?, doctorDOB = ?, doctorQualification = ?, doctorAddress = ?, doctorCity = ? "
+			String sql ="UPDATE doctor SET  doctorName = ?, doctorDOB = ?, doctorQualification = ?, doctorAddress = ?, doctorCity = ? "
 					+ "WHERE (doctorId = ?)";
 			pstm = con.prepareStatement(sql);
 			
@@ -55,10 +55,13 @@ public class DoctorQuery {
 	}
 
 
-	public static ResultSet selectWQueryDoctor(Integer id) {
+	public static ResultSet selectWQueryDoctor(long id) {
 		try {
-			String sql ="select * from doctor where doctorId="+id+"";
+			System.out.println("id :"+id);
+			String sql ="select * from doctor where doctorID=?";
+			
 			pstm = con.prepareStatement(sql);
+			pstm.setLong(1, id);
 			return pstm.executeQuery();
 		}catch (SQLException e) {
 			e.printStackTrace();

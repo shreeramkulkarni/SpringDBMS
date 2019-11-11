@@ -31,9 +31,8 @@ function loadData(data) {
 		$("td").remove();
 	for(i=0 ; i< data.length; i++){
 
-		let dyData = "<td><a href=/SpringDBMS/admin/doctor/update?doctorId="+data[i].doctorId+">"+data[i].doctorId+"</a></td>"+
+		let dyData = "<td><a href=/SpringDBMS/admin/doctor/update?doctorId="+data[i].doctorID+">"+data[i].doctorID+"</a></td>"+
 		"<td>"+data[i].doctorName+"</td>"+
-		"<td>"+data[i].doctorMobile+"</td>"+
 		"<td>"+data[i].doctorDOB+"</td>"+
 		"<td>"+data[i].doctorQaulification+"</td>"+
 		"<td>"+data[i].doctorAddress+"</td>"+

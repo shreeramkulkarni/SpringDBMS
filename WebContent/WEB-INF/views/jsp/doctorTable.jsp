@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" session="false" %>
+    pageEncoding="ISO-8859-1"  %>
     
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 
 <c:if test="${sessionScope.user==null}">
 <c:redirect url="/"></c:redirect>
-</c:if>
+</c:if> 
 
 <!DOCTYPE html>
 <html>
@@ -14,7 +14,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Table - Panch-Karm Clinic</title>
+    <title>Patient List</title>
     <link rel="stylesheet" href="<c:url value="/assets/bootstrap/css/bootstrap.min.css"/>">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
     <link rel="stylesheet" href="<c:url value="/assets/fonts/fontawesome-all.min.css"/>">
@@ -39,12 +39,12 @@
         <nav class="navbar navbar-dark flex-shrink-0 align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
             <div class="container-fluid d-flex flex-column p-0">
                 <a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
-                    <div class="sidebar-brand-text mx-3" style="margin: 0px;padding: 0px;background-size: auto;background-position: left;"><span style="padding: 0px;margin-right: 0px;">Panch-Karm Clinic</span></div>
+                    <div class="sidebar-brand-text mx-3" style="margin: 0px;padding: 0px;background-size: auto;background-position: left;"><span style="padding: 0px;margin-right: 0px;">Panchaved</span></div>
                 </a>
                 <hr class="sidebar-divider my-0">
                 <ul class="nav navbar-nav text-light" id="accordionSidebar">
                     <li class="nav-item" role="presentation"></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link active" href="/SpringDBMS/admin"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="/SpringDBMS/admin"><i class="fas fa-tachometer-alt"></i><span>Dashboard </span></a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="/SpringDBMS/admin/doctor/new"><i class="fas fa-user"></i><span>New Doctor</span></a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link active" href="/SpringDBMS/admin/doctor"><i class="fas fa-table"></i><span>Show doctors</span></a></li>
                     <li class="nav-item" role="presentation"></li>
@@ -156,7 +156,7 @@
                     </div>
                 </nav>
                 <div class="container-fluid">
-                    <h3 class="text-dark mb-4">Team</h3>
+                    <h3 class="text-dark mb-4">Patient List </h3>
                     <div class="card shadow">
                         <div class="card-header py-3">
                             <p class="text-primary m-0 font-weight-bold">Employee Info</p>
@@ -176,7 +176,6 @@
                                         <tr>
                                         	<th>Id</th>
                                             <th>Name</th>
-                                            <th>Mobile</th>
                                             <th>D.O.B.</th>
                                             <th>Qualification</th>
                                             <th>Address</th>
@@ -188,9 +187,8 @@
 				<c:forEach items="${doctor}" var="user">
                                         
                                          <tr id="sTr">
-                                            <td><a onclick="" href='/SpringDBMS/admin/doctor/update?doctorId=${user.doctorId}'><c:out value="${user.doctorId}"/></a></td>
+                                            <td><a onclick="" href='/SpringDBMS/admin/doctor/update?doctorID=${user.doctorID}'><c:out value="${user.doctorID}"/></a></td>
                                             <td><c:out value="${user.doctorName}"/></td>
-                                            <td><c:out value="${user.doctorMobile}"/></td>
                                             <td><c:out value="${user.doctorDOB}"/></td>
                                             <td><c:out value="${user.doctorQualification}"/></td>
                                             <td><c:out value="${user.doctorAddress}"/></td>
